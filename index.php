@@ -215,62 +215,83 @@
         </div>
       </section>
 
-      <section id="about" class="about">
+      <section id="about" class="about mb-5">
         <div class="container">
           <div class="row content">
             <div class="col-lg-12">
-              <h5 class="txt">PRODUCTS</h5>
-              <h2 style="margin-top:0px !important">Explore by category</h2>
+              <h5 class="txt ms-4">PRODUCTS</h5>
+              <h2 style="margin-top:0px !important" class="ms-4">Explore by category</h2>
             </div>
           </div>
         </div>
-        <div class="container">
-          <p class = "text"></p>
-          <div class="tab">
+        <div class="container mt-5" style="margin-top: 0rem!important;">
+          <div class="tab ms-1">
             <button class="" onclick="openTab(event, 'coding', 'arrow1')" id="defaultOpen">
-              <img src="images/bg/home.png" alt="" style="max-width:75%">
+              <img src="images/bg/home.png" alt="" class="leftImg">
               <span id="arrow1" ></span>
             </button>
             <button class="" onclick="openTab(event, 'wordPress', 'arrow2')">
-              <img src="images/bg/home.png" alt="" style="max-width:75%">
+              <img src="images/bg/home.png" alt="" class="leftImg" >
               <span id="arrow2"></span>
             </button>
             <button class="" onclick="openTab(event, 'videos', 'arrow3')">
-              <img src="images/bg/home.png" alt="" style="max-width:75%">
+              <img src="images/bg/home.png" alt="" class="leftImg">
               <span id="arrow3"></span>
             </button>
             <button class="" onclick="openTab(event, 'photoshop', 'arrow4')">
-              <img src="images/bg/home.png" alt="" style="max-width:75%">
+              <img src="images/bg/home.png" alt="" class="leftImg" >
               <span id="arrow4"></span>
             </button>
           </div>
           
-          <div id="coding" class="tabcontent">
-            <img src="images/bg/home.png" alt="" class="pion2" >
-            <h3>Coding</h3>
+          <div id="coding" class="tabcontent mt-1">
+            <div style="display :flex; justify-content: center;">
+              <img src="images/bg/home.png" alt="" class="pion2 mt-2" style="display:flex; justify-content: center;">
+            </div>
+            <div class="mb-2 nheading" style="display :flex; justify-content: space-between;">
+              <h3>Coding</h3>
+              <button class="viewBtn">View All</button>
+            </div>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo debitis pariatur harum expedita maiores aliquid, iure distinctio voluptas recusandae velit, officia ratione praesentium consequatur rem dolorem maxime architecto consectetur sint?</p>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo debitis pariatur harum expedita maiores aliquid, iure distinctio voluptas recusandae velit, officia ratione praesentium consequatur rem dolorem maxime architecto consectetur sint?</p>
+          
           </div>
-          <div id="wordPress" class="tabcontent">
-            <img src="images/bg/home.png" alt="" class="pion2" >
-            <h3>WordPress</h3>
+          <div id="wordPress" class="tabcontent mt-1">
+            <div style="display :flex; justify-content: center;">
+              <img src="images/bg/home.png" alt="" class="pion2 mt-2" style="display:flex; justify-content: center;">
+            </div>
+            <div class="mb-2 nheading" style="display :flex; justify-content: space-between;">
+              <h3>WordPress</h3>
+              <button class="viewBtn">View All</button>
+            </div>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo debitis pariatur harum expedita maiores aliquid, iure distinctio voluptas recusandae velit, officia ratione praesentium consequatur rem dolorem maxime architecto consectetur sint?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque quae assumenda sit nulla cum quam, nam, vel hic, ex ut nisi aspernatur provident accusamus ratione impedit adipisci maxime. Necessitatibus, aliquam.</p>
+          
           </div>
-          <div id="videos" class="tabcontent">
-            <img src="images/bg/home.png" alt="" class="pion2" >
-            <h3>Videos</h3>
+          <div id="videos" class="tabcontent mt-1">
+            <div style="display :flex; justify-content: center;">  
+              <img src="images/bg/home.png" alt="" class="pion2 mt-2" style="display:flex; justify-content: center;">
+            </div>
+            <div class="mb-2 nheading" style="display :flex; justify-content: space-between;">
+              <h3>Videos</h3>
+              <button class="viewBtn">View All</button>
+            </div>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo debitis pariatur harum expedita maiores aliquid, iure distinctio voluptas recusandae velit, officia ratione praesentium consequatur rem dolorem maxime architecto consectetur sint?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non blanditiis voluptates, consequatur, ratione debitis quibusdam autem exercitationem provident, veniam impedit quae mollitia nobis a distinctio cum laborum corporis. Itaque, minus?</p>
+          
           </div>
-          <div id="photoshop" class="tabcontent">
-            <img src="images/bg/home.png" alt="" class="pion2" >
-            <h3>Photoshop</h3>
+          <div id="photoshop" class="tabcontent mt-1">
+            <div style="display :flex; justify-content: center;">  
+              <img src="images/bg/home.png" alt="" class="pion2 mt-2" style="display:flex; justify-content: center;">
+            </div>
+              <div class="mb-2 nheading" style="display :flex; justify-content: space-between;">
+              <h3>Photoshop</h3>
+              <button class="viewBtn">View All</button>
+            </div>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo debitis pariatur harum expedita maiores aliquid, iure distinctio voluptas recusandae velit, officia ratione praesentium consequatur rem dolorem maxime architecto consectetur sint?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non blanditiis voluptates, consequatur, ratione debitis quibusdam autem exercitationem provident, veniam impedit quae mollitia nobis a distinctio cum laborum corporis. Itaque, minus?</p>
+           
           </div>
         </div>
       </section>
+
+
     </main>
     <!-- ======= Footer ======= -->
     <footer id="footer">

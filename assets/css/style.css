@@ -48,10 +48,54 @@ body {
   overflow-x: hidden;
 }
  /* Style the buttons inside the tab */
- .tab button {
+ .back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 996;
+  background: #d9232d;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  transition: all 0.4s;
+}
+
+.right {
+  text-align: right !important;
+}
+
+.back-to-top i {
+  font-size: 28px;
+  line-height: 0;
+}
+
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
+
+}
+
+/*-------------------------------------------------------
+#step
+------------------------------------------------------------*/
+
+.tab {
+  float: left;
+  width: 20%;
+  height: 500px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
   display: block;
-  padding: 10px ;
-  width: 80%;
+  padding: 10px;
+  /* width: 80%; */
+  width: 60%;
+  height: 27%;
   border: none;
   outline: none;
   cursor: pointer;
@@ -63,10 +107,12 @@ body {
   display: inline-block;
   border: 2px solid rgba(0, 0, 0, 0.1);
   border-bottom: 2px solid rgba(0, 0, 0, 0.1) !important;
-} 
+  border-radius: 50%;
+}
+
 .tab button :active {
   display: block;
-  padding: 10px ;
+  padding: 10px;
   width: 80%;
   border: none;
   outline: none;
@@ -79,11 +125,12 @@ body {
   display: inline-block;
   border: 2px solid red;
   border-bottom: 2px solid red !important;
-} 
+}
 
 ::-webkit-scrollbar {
   box-shadow: inset 0 0 5px white;
-  width:5px;
+  width: 5px;
+  /* width: 20px; */
 }
 
 /* Track */
@@ -94,9 +141,11 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
+  /* background: linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%);
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.35); */
   border-radius: 10px;
 }
- 
+
 /* Style the tab content */
 .tabcontent {
   float: left;
@@ -107,13 +156,31 @@ body {
   margin-left: 40px;
   animation: blinker 0.6s linear;
 }
- 
-/* animation effects */
-@keyframes blinker {  
-    10% { opacity: 0; } 
-    100% { opacity: 1; }
+
+.leftImg{
+  width: 75%;
+  max-width: 75%;
 }
- 
+
+.viewBtn{
+  background: linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%);
+  border-radius: 40px;
+  padding: 1px 20px;
+  color:#fff;
+  border: none;
+}
+
+/* animation effects */
+@keyframes blinker {
+  10% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .tab .arrow {
   color: rgb(88, 88, 88);
   float: right;
@@ -121,7 +188,7 @@ body {
   position: relative;
   left: 25px;
 }
- 
+
 @media (max-width: 800px) {
   .tab {
     width: 30% !important;
@@ -131,32 +198,44 @@ body {
     width: 61%;
     height: auto;
   }
-  .cbg{
-    background: linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%) !important;
-    border-radius: 20px;
-  }
 }
-@media (max-width: 972px) {
-  .subLeft2 {
-    border-right: 2px solid #101010 !important;
-    height: auto !important;
-  }
-}
+
 @media (max-width: 600px) {
-  .tab, .tabcontent {
-    width: 100% !important;
+
+  .tabcontent {
+   
     margin: 0 auto;
   }
-  .tab button{
-    width: 100%;
-    margin: 10px 0px;
-    padding: 18px 10px;
+
+  .tab{
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto;
   }
+
+  .tab button {
+    width: 91%;
+    height: 16%;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    margin:0px;
+  }
+
   .tab .arrow {
     display: none !important;
   }
+
+.nheading{
+  display: block !important;
+}
 }
 
+@media (max-width: 325px) {
+  .tab button {
+    width: 50%;
+    height: 25%;
+  }
+}
 
 
 /*--------------------------------------------------------------
