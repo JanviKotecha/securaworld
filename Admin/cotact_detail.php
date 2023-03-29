@@ -36,7 +36,6 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Mobile</th>
-                            <th>Subject</th>
                             <th>Message</th>
                             <th>Date</th>
                             <th style="width: 50pxs"> Delete</th>
@@ -51,7 +50,6 @@
                                 <td class="py-1"><?php echo $row['nm'];?></td>
                                 <td><?php echo $row['eml'];?></td>
                                 <td><?php echo $row['mob'];?></td>
-                                <td><?php echo $row['sub'];?></td>
                                 <td><?php echo $row['msg'];?></td>
                                 <td><?php echo $row['dt'];?></td>                             
                                 <td style="width: 50px;"><a class="btn btn-danger" href="cotact_detail.php?id=<?php echo $row['id'];?>" onclick="return confirm('Are you sure');">Delete</a><br/></td>

@@ -175,26 +175,27 @@
               <h2 class="h2">Choose Services</h2>
             </div>
           <?php 
+            $result=$qm->customQuery("SELECT * FROM solution Limit 0,3"); 
             if (mysqli_num_rows($result) > 0) {
             while ($row=mysqli_fetch_array($result)) { ?>
             <div class="col-lg-4 entries" style="margin-bottom:20px !important">
                 <article class="entry h-100">
                   <div class="entry-img">
-                    <img src="<?php echo $row["img"]=='' ? BLOG_URL.'noimg.png' : (file_exists(UPL_BLOG_URL.$row["img"]) ? BLOG_URL.$row["img"] :  BLOG_URL.'noimg.png'); ?>" alt="" class="img-fluid" style="padding:25px">
+                    <img src="<?php echo $row["img"]=='' ? SOLUTION_URL.'noimg.png' : (file_exists(UPL_SOLUTION_URL.$row["img"]) ? SOLUTION_URL.$row["img"] :  SOLUTION_URL.'noimg.png'); ?>" style="padding:25px;width:100%;height:250px !important;">
                   </div>
                   <h2 class="entry-title">
-                    <a href="blog-detail.php?id=<?php echo $row['id'];?>" style="font-size:20px!important"><?php echo $row['tit']; ?></a>
+                    <a href="solution_detail.php?id=<?php echo $row['id'];?>" style="font-size:20px!important"><?php echo $row['tit']; ?></a>
                   </h2>
                   <div class="entry-body">
-                    <p>Secura offers solutions for a wide spectrum of industries. <br></p>
+                    <p style="overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;"> <?php echo $row['des']; ?><br></p>
                   </div>
-                  <div class="card-footerr">
-                    <b><a href="blog-detail.php?id=<?php echo $row['id']; ?>">Read More</a></b>
+                  <div class="card-footerr" style="text-align:center">
+                    <b><a href="solution_detail.php?id=<?php echo $row['id']; ?>">Read More</a></b>
                   </div>
                 </article>
             </div>
             <?php } } 
-                $result=$qm->customQuery("SELECT COUNT(id) FROM blog_post"); 
+                $result=$qm->customQuery("SELECT COUNT(id) FROM solution"); 
                 if (mysqli_num_rows($result)>0) {
                   $row=mysqli_fetch_array($result);   
                   $total_records = $row[0]; 

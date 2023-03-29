@@ -60,20 +60,30 @@
       <a class="nav-link"  href="social_team.php" >      
         <span class="menu-title">Social Team</span>     
       </a>  
-    </li>
-    <li class="nav-item  <?php echo $page_title =='blog' ? 'activerow' : '' ;?>">
+    </li> -->
+    <!-- <li class="nav-item  <?php echo $page_title =='blog' ? 'activerow' : '' ;?>">
       <a class="nav-link"  href="blog_cate.php" >      
         <span class="menu-title">Blog Category</span>     
       </a>  
     </li> -->
-    <li class="nav-item  <?php echo $page_title =='blog_post' ? 'activerow' : '' ;?>">
+    <!-- <li class="nav-item  <?php echo $page_title =='blog_post' ? 'activerow' : '' ;?>">
       <a class="nav-link"  href="blog_post.php" >      
         <span class="menu-title">Blog</span>     
+      </a>  
+    </li> -->
+    <li class="nav-item  <?php echo $page_title =='social' ? 'activerow' : '' ;?>">
+      <a class="nav-link"  href="social.php" >      
+        <span class="menu-title">Social Link</span>     
       </a>  
     </li>
    <li class="nav-item <?php echo $page_title =='contact' ? 'activerow' : '' ;?>">
     <a class="nav-link"  href="cotact_detail.php" >      
       <span class="menu-title">Contact</span>     
+    </a>
+  </li>
+  <li class="nav-item <?php echo $page_title == 'changepwd' ? 'activerow' : ''; ?>">
+    <a class="nav-link"  href="changepwd.php" >      
+        <span class="menu-title">Change Password</span>     
     </a>
   </li>
     <li class="nav-item">

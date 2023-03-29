@@ -2,7 +2,7 @@
 <?php include "include/config.php";  $page='contact'; ?>
 <html lang="en">
   <head>
-    <title>V | Contact</title>
+    <title>Contact</title>
     <?php include("include/head.php");  ?>
   </head>
   <body>
@@ -11,72 +11,83 @@
       <?php include("include/headER.php"); ?>
     </header>
     <main id="main">
-      <section id="breadcrumbs" class="breadcrumbs">
-        <div class="container">
-          <div class="d-flex justify-content-between align-items-center">
-            <h2>Contact</h2>
-            <ol>
-              <li><a href="index.php">Home</a></li>
-              <li>Contact</li>
-            </ol>
+    <section id="hero">
+      <div class="carousel-item active" style="background-image: url(images/bg/solution.png)">
+        <div class="carousel-container">
+          <div class="container">
+            <h2 class="animate__fadeInDown">- Contact <span style="background: linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;background-clip: text;">Us</span></h2>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
       <!-- ======= Contact Section ======= -->
-      <section id="contact" class="contact">
-        <div class="container">
-          <div>
-            <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+ 
+    <section class="ftco-section contact" style="text-align:left !important">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6 text-center mb-5">
+            <h2 class="heading-section" style="font-weight:600">Contact Us</h2>
           </div>
-          <div class="row mt-5">
-            <div class="col-lg-4">
-              <div class="info">
-                <div class="address">
-                  <i class="bi bi-geo-alt"></i>
-                  <h4>Location:</h4>
-                  <p>A108 Adam Street, New York, NY 535022</p>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-10 col-md-12 cmain">
+            <div class="wrapper">
+              <div class="row no-gutters">
+                <div class="col-md-5 d-flex align-items-stretch cbg">
+                  <div class="info-wrap  w-100 p-lg-5 p-4">
+                    <h3 class="mb-4 mt-md-4" style="color:#fff">Information</h3>
+                    <p style="color:#fff">Lorem ipsum dolor sit amet consectetur.um dolor sit amet consectetur.vLorem ipsum dolor sit amet consectetur. <br><br></p>
+                    <div class="info">
+                      <div class="address">
+                        <i class="bi bi-geo-alt"></i>
+                        <p>18 Pencai Terrace, Treorchy, CF42 6HL</p>
+                      </div>
+                      <div class="email">
+                        <i class="bi bi-envelope"></i>
+                        <p>michelle.rivera@example.com</p>
+                      </div>
+                      <div class="phone">
+                        <i class="bi bi-telephone"></i>
+                        <p>(316) 555-0116</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="email">
-                  <i class="bi bi-envelope"></i>
-                  <h4>Email:</h4>
-                  <p>info@example.com</p>
-                </div>
-                <div class="phone">
-                  <i class="bi bi-phone"></i>
-                  <h4>Call:</h4>
-                  <p>+1 5589 55488 55s</p>
+                <div class="col-md-7 d-flex align-items-stretch">
+                  <div class="contact-wrap w-100 p-md-5 p-4">
+                    <form action="contact-data.php" method="post" role="form"  >
+                      <div class="row">
+                        <div class="col-md-12 form-group mt-3">
+                          <label for="">Name</label>
+                          <input type="text" name="nm" class="form-control fbg" id="nm"  required>
+                        </div>
+                        <div class="col-md-12 form-group mt-3">
+                          <label for="">Email</label>
+                          <input type="email" class="form-control fbg" name="eml" id="eml"required>
+                        </div>
+                        <div class="col-md-12 form-group mt-3">
+                          <label for="">Phone</label>
+                          <input type="tel" name="mob" class="form-control fbg" id="mob" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required>
+                        </div>
+                        <div class="col-md-12 form-group mt-3">
+                          <label for="">Message</label>
+                          <textarea class="form-control fbg" name="msg" rows="6" required></textarea>
+                        </div>
+                        <div class="text-center">
+                          <br/><input type="submit" name="submit" value="Submit" style="background: linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%);border-radius: 10px;border: 0;padding: 10px 24px;color: #fff;transition: 0.4s;border-radius: 4px;">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-8 mt-5 mt-lg-0">
-              <form action="contact-data.php" method="post" role="form"  >
-                <div class="row">
-                  <div class="col-md-6 form-group">
-                    <input type="text" name="nm" class="form-control" id="nm" placeholder="Your Name" required>
-                  </div>
-                  <div class="col-md-6 form-group mt-3 mt-md-0">
-                    <input type="email" class="form-control" name="eml" id="eml" placeholder="Your Email" required>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6 form-group mt-3">
-                    <input type="tel" name="mob" class="form-control" id="mob" placeholder="Your Mobile " required>
-                  </div>
-                  <div class="col-md-6 form-group mt-3 ">
-                    <input type="text" class="form-control" name="sub" id="sub" placeholder="Subject" required>
-                  </div>
-                </div>
-                <div class="form-group mt-3">
-                  <textarea class="form-control" name="msg" rows="5" placeholder="Message" required></textarea>
-                </div>
-                <div class="text-center">
-                  <br/><input type="submit" name="submit" value="Send Message" style="background: #d9232d;border: 0;padding: 10px 24px;color: #fff;transition: 0.4s;border-radius: 4px;">
-                </div>
-              </form>
-            </div>
           </div>
         </div>
-      </section>
+        <center><img src="images/bg/ft.png" alt="" ></center>
+      </div>
+    </section>
+    
     </main>
     <!-- ======= Footer ======= -->
     <footer id="footer">

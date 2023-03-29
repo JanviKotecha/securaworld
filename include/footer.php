@@ -1,19 +1,32 @@
 <div class="footer-top">
   <div class="container">
     <div class="row">
-      <div class="col-lg-3 col-md-6">
+      <div class="col-lg-3 col-md-6 subLeft2">
         <div class="footer-info">
-          <h3><?php echo WEB_TITLE; ?></h3>
+        <a href="index"><img src="images/logo/securaworld_white.png" style="max-width:88%"></a>
           <p>
-            <?php $result=$qm->getRecord("profile","*","id=1");
-            if (mysqli_num_rows($result)>0) {
-              $row=mysqli_fetch_array($result); ?>
-              <strong>Address : </strong><?php echo $row['addr']; ?><br/>
-              <strong>Phone : </strong><a href="tel:<?php echo $row['mob']; ?>" style="text-decoration: none;color: white;"><?php echo $row['mob']; ?></a><br/>
-              <strong>Email : </strong><a href="mailto:<?php echo $row['eml']; ?>" style="text-decoration: none;color: white;"><?php echo $row['eml']; ?></a><br/>
-            <?php } ?>
+            <br>Secura is the flagship brand of Lookman Electroplast Industries Limited,India's pioneer in security and Surveillance Solutions, since 1979.
+            Secura AI Analytics and cameras are an essential part of mission critical command control centers across major cities in india.
           </p>
-          <div class="social-links mt-3">
+        </div>
+      </div>
+      <?php $result=$qm->getRecord("profile","*","id=1");
+        if (mysqli_num_rows($result)>0) {
+          $row=mysqli_fetch_array($result); ?>
+      <div class="col-lg-3 col-md-6 footer-links subLeft2" style="padding-left:30px">
+        <h4>Corporate Office:</h4>
+        <p><?php echo $row['addr'] ?></p>
+      </div>
+      <div class="col-lg-3 col-md-6 footer-links subLeft2" style="padding-left:30px">
+      <h4>Phone : <br><br> <a href="tel:<?php echo $row['mob']; ?>" style="text-decoration: none;color: #A6A6A6;"><?php echo $row['mob']; ?></a></h4>
+      <h4>We Are Open</h4>Mon - Sat : 10 AM - 7PM
+      <?php } ?>    
+      </div>
+
+      <div class="col-lg-3 col-md-6 footer-newsletter " style="padding-left:30px">
+        <h4>Contct: </h4>
+        <p>Contact Form <br>Find a reseller <br>Experience center</p>
+        <div class="social-links mt-3">
             <?php $result=$qm->getRecord("social","*","id=1");
             if (mysqli_num_rows($result)>0) {
               $row=mysqli_fetch_array($result); ?>
@@ -23,46 +36,17 @@
               <a href="<?php echo $row['twit'];?>" class="twitter"><i class="bx bxl-twitter"></i></a>
            <?php } ?>
           </div>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-6 footer-links">
-        <h4>Useful Links</h4>
-        <ul>
-          <li><i class="bx bx-chevron-right"></i> <a href="index.php">Home</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="about.php">About us</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="services.php">Services</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="javascript:void(0)">Terms of service</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="javascript:void(0)">Privacy policy</a></li>
-        </ul>
-      </div>
-      <div class="col-lg-3 col-md-6 footer-links">
-        <h4>Our Services</h4>
-        <ul>
-          <li><i class="bx bx-chevron-right"></i> <a href="javascript:void(0)">Web Design</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="javascript:void(0)">Web Development</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="javascript:void(0)">Product Management</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="javascript:void(0)">Marketing</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="javascript:void(0)">Graphic Design</a></li>
-        </ul>
-      </div>
-
-      <div class="col-lg-4 col-md-6 footer-newsletter">
-        <h4>Our Newsletter</h4>
-        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-        <form action="" method="post">
-          <input type="email" name="email"><input type="submit" value="Subscribe">
-        </form>
 
       </div>
 
     </div>
   </div>
-</div>
+</div><hr>
 <div class="container">
   <div class="copyright">
-    &copy; Copyright <strong><span>Sailor</span></strong>. All Rights Reserved
+  © 2023, Lookman Electroplast Pvt.Ltd. All Rights Reserved Privacy Policy | T&C
   </div>
-  <div class="credits">
-    Designed by <a href="">Softpad</a>
-  </div>
+  <!-- <div class="credits">
+    Designed by <a href=""></a>
+  </div> -->
 </div>

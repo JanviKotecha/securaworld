@@ -7,7 +7,7 @@
     if(mysqli_num_rows($res)>0){
       $qm->deleteRecord("solution","id=".$_GET['id']);
       $result=mysqli_fetch_array($res);
-      unlink(UPLOAD_soluTion_URL.$result['img']);
+      unlink(UPLOAD_SOLUTION_URL.$result['img']);
       $_SESSION['alert_msg'] .= "<div class='msg_success'>solution Image deleted successfully.</div>";
       header("location:solution.php");
       exit;
