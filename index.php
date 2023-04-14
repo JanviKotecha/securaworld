@@ -14,32 +14,14 @@
         }  
         $start_from = ($page-1) * $limit;
         $previous_page = $page - 1;
-        $next_page = $page + 1; 
-      
-        if(isset($_GET['id']) && $_GET['id'] != '' && is_numeric($_GET['id'])) {
-          $result=$qm->getRecord("blog_post blg Left Join blog_cate blgc ON blg.cate=blgc.id","blg.id,blg.img,blg.tit,blg.srtdes,blg.lngdes,blg.dt,blgc.cate as blc","blg.cate=".$_GET['id']);
-        }
-        elseif(isset($_POST['search'])) {   
-          $keyword = '';  
-          $query = explode(" ",$_POST["keyword"]);  
-          foreach($query as $text)  
-          {  
-            $keyword .= "blg.tit LIKE '%".mysqli_real_escape_string($con, $text)."%' OR blg.srtdes LIKE '%".mysqli_real_escape_string($con, $text)."%' OR  blg.lngdes LIKE '%".mysqli_real_escape_string($con, $text)."%' OR ";  
-          }  
-          $keyword = substr($keyword, 0, -4); 
-          $result=$qm->getRecord("blog_post blg Left Join blog_cate blgc ON blg.cate=blgc.id","blg.id,blg.img,blg.tit,blg.srtdes,blg.lngdes,blg.dt,blgc.cate as blc",$keyword);
-        }
-        else {
-          $result=$qm->customQuery("SELECT blg.id, blg.img, blg.tit, blg.srtdes, blg.lngdes, blg.dt, blgc.cate AS blc FROM blog_post blg LEFT JOIN blog_cate blgc ON blg.cate = blgc.id LIMIT $start_from,$limit");
-          // $result=$qm->getRecord("blog_post blg Left Join blog_cate blgc ON blg.cate=blgc.id","blg.id,blg.img,blg.tit,blg.srtdes,blg.lngdes,blg.dt,blgc.cate as blc","Limit 0,1");
-        } ?>
-    <script type="text/javascript">
-      $("document").ready(function() {
-      setTimeout(function() {
-        $("#f1").click();
-      },1000);
-      });
-    </script>
+        $next_page = $page + 1; ?>
+        <script type="text/javascript">
+          $("document").ready(function() {
+          setTimeout(function() {
+            $("#f1").click();
+          },1000);
+          });
+        </script>
   </head>
   <body>
   <header class="header" id="header">
@@ -214,7 +196,6 @@
               </div> -->
         </div>
       </section>
-
       <section id="about" class="about mb-5">
         <div class="container">
           <div class="row content">

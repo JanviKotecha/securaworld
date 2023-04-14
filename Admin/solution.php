@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php @include("include/secureConfig.php");
-   $page_title = "solution";
+  $page_title = "solution";
+
   if(isset($_GET['id'])){
     $res=$qm->getRecord("solution","img","id=".$_GET['id']);
     if(mysqli_num_rows($res)>0){
@@ -20,6 +21,7 @@
   }
 ?>
   <head>
+    
     <?php include("include/head.php"); ?>
   </head>
   <body>
@@ -38,9 +40,10 @@
                       <a href="solution_add.php" class="btn btn-primary" style="float: right;">Add Solution</a>
                     </h2>
                     <div class="resTable">
-                      <table class="table table-striped">
+                    <table class="datatable-1 table table-bordered table-striped	 display" width="100%">
                         <thead>
                           <tr>
+                          <th>#</th>
                             <th>Image</th>
                             <th>Title</th>
                             <th>Short Description</th>
@@ -51,10 +54,13 @@
                         </thead>
                         <tbody>
                           <?php 
-                            $result=$qm->getRecord("solution");
+                            $result=$qm->customQuery("SELECT * FROM solution"); 
                             if (mysqli_num_rows($result)>0) {
-                             while ($row=mysqli_fetch_array($result)) { ?>
+                              $cnt=1;
+                             while ($row=mysqli_fetch_array($result)) {
+                              ?>
                               <tr>
+                              <td><?php echo htmlentities($cnt);?></td>
                                 <td><img src="<?php echo $row["img"]=='' ? SOLUTION_URL.'noimg.png' : (file_exists(UPLOAD_SOLUTION_URL.$row["img"]) ? SOLUTION_URL.$row["img"] :  SOLUTION_URL.'noimg.png'); ?>"  alt="image" style="border-radius: 0px;width:100px;height:100px;"></td>
                                 <td><h5><?php echo $row['tit']; ?></h5></td>
                                 <td><h5><?php echo $row['des']; ?></h5></td>
@@ -62,7 +68,7 @@
                                 <td><a class="btn btn-primary" href="solution_update.php?id=<?php echo $row['id'];?>">Update</a></td>
                                 <td><a class="btn btn-danger" href="solution.php?id=<?php echo $row['id'];?>" onclick="return confirm('Are you sure');">Delete</a></td>                             
                               </tr>
-                            <?php } }
+                            <?php   $cnt=$cnt+1; } }
                             else { ?>
                               <tr>
                                 <td colspan="7"><center><b>No Record Found</b></center></td>
@@ -70,16 +76,27 @@
                           <?php } ?>
                         </tbody>
                       </table>
+                      
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
           <?php @include("include/footer.php"); ?>  
         </div>
       </div>
     </div>  
+    
     <?php @include("include/footer-script.php");?>
+    <script src="scripts/datatables/jquery.dataTables.js"></script>
+    <script>
+		$(document).ready(function() {
+      $('.datatable-1').dataTable();
+			$('.dataTables_paginate').addClass("btn-group datatable-pagination");
+			$('.dataTables_paginate > a').wrapInner('<span />');
+			$('.dataTables_paginate > a:first-child').append('<p><</p>');
+			$('.dataTables_paginate > a:last-child').append('<p>></p>');
+		} );
+	</script>
   </body>
 </html>

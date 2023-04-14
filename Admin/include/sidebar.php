@@ -16,61 +16,31 @@
         <span class="menu-title">solution</span>     
       </a>    
     </li> 
-    <!-- <li class="nav-item  <?php echo $page_title =='imge' ? 'activerow' : '' ;?>">
-      <a class="nav-link" href="img.php" >      
-        <span class="menu-title">Image</span>     
-      </a>    
+    <li class="nav-item  <?php echo $page_title =='product_cate' ? 'activerow' : '' ;?>">
+      <a class="nav-link" href="product_cate.php" >      
+        <span class="menu-title">Create Category</span>     
+      </a>  
     </li> 
-    <li class="nav-item  <?php echo $page_title =='icon' ? 'activerow' : '' ;?>">
-      <a class="nav-link" href="icon.php" >      
-        <span class="menu-title">Home Icon</span>     
-      </a>    
+    <li class="nav-item  <?php echo $page_title =='product_subcate' ? 'activerow' : '' ;?>">
+      <a class="nav-link" href="product_subcate.php" >      
+        <span class="menu-title">SubCategory</span>     
+      </a>  
     </li> 
-    <li class="nav-item  <?php echo $page_title =='current' ? 'activerow' : '' ;?>">
-      <a class="nav-link" href="recent_update.php" >      
-        <span class="menu-title">Recent Update</span>     
-      </a>    
-    </li>
-    <li class="nav-item  <?php echo $page_title =='customer' ? 'activerow' : '' ;?>">
-      <a class="nav-link"  href="customer.php" >      
-        <span class="menu-title">Testimonial</span>     
+    <li class="nav-item  <?php echo $page_title =='product' ? 'activerow' : '' ;?>">
+      <a class="nav-link" href="product.php" >      
+        <span class="menu-title">Product</span>     
       </a>  
     </li>
-     <li class="nav-item  <?php echo $page_title =='services' ? 'activerow' : '' ;?>">
-      <a class="nav-link" href="services.php" >      
-        <span class="menu-title">Services</span>     
+    <li class="nav-item  <?php echo $page_title =='ewaste' ? 'activerow' : '' ;?>">
+      <a class="nav-link" href="ewastea.php" >      
+        <span class="menu-title">E-Waste</span>     
       </a>  
     </li>
-    <li class="nav-item  <?php echo $page_title =='social' ? 'activerow' : '' ;?>">
-      <a class="nav-link"  href="social.php" >      
-        <span class="menu-title">Social Link</span>     
+    <li class="nav-item  <?php echo $page_title =='software' ? 'activerow' : '' ;?>">
+      <a class="nav-link" href="software.php" >      
+        <span class="menu-title">Software Download</span>     
       </a>  
     </li>
-    <li class="nav-item  <?php echo $page_title =='gal_cat' ? 'activerow' : '' ;?>">
-      <a class="nav-link"  href="gallery_category.php" >      
-        <span class="menu-title">Gallery Category</span>     
-      </a>  
-    </li>
-    <li class="nav-item  <?php echo $page_title =='gallery' ? 'activerow' : '' ;?>">
-      <a class="nav-link"  href="gallery.php" >      
-        <span class="menu-title">Gallery</span>     
-      </a>  
-    </li>
-    <li class="nav-item  <?php echo $page_title =='social_team' ? 'activerow' : '' ;?>">
-      <a class="nav-link"  href="social_team.php" >      
-        <span class="menu-title">Social Team</span>     
-      </a>  
-    </li> -->
-    <!-- <li class="nav-item  <?php echo $page_title =='blog' ? 'activerow' : '' ;?>">
-      <a class="nav-link"  href="blog_cate.php" >      
-        <span class="menu-title">Blog Category</span>     
-      </a>  
-    </li> -->
-    <!-- <li class="nav-item  <?php echo $page_title =='blog_post' ? 'activerow' : '' ;?>">
-      <a class="nav-link"  href="blog_post.php" >      
-        <span class="menu-title">Blog</span>     
-      </a>  
-    </li> -->
     <li class="nav-item  <?php echo $page_title =='social' ? 'activerow' : '' ;?>">
       <a class="nav-link"  href="social.php" >      
         <span class="menu-title">Social Link</span>     

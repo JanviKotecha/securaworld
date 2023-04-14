@@ -72,16 +72,16 @@
                 $total_pages = ceil($total_records / $limit); //count page ?>
               <div class="solution-pagination">
                 <ul class="justify-content-center" >    
-                  <li style="list-style: none !important;list-style-type: none !important;" <?php if($page <= 1){ echo "class='disable'"; }else { echo "class='active'"; } ?>>
+                  <li style="list-style: none !important;list-style-type: none !important;" class="disable">
                     <a <?php if($page > 1){ echo "href='?page=$previous_page'"; } ?>><b><i class="bx bx-chevron-left"></i></b></a>
                   </li>
                   <?php
                     for ($i=1; $i<=$total_pages; $i++) {  ?>
-                      <li class='disable' style="list-style: none !important;list-style-type: none !important;">
-                        <a <?php if($page < $total_pages) { echo "href='?page=$i#solution''"; } ?>><?php echo $i ?></a>
+                      <li  style="list-style: none !important;list-style-type: none !important;">
+                        <a class="<?php if($page == $i) {echo 'act'; } else { echo 'disable';} ?>"   href="solutions.php?page=<?= $i; ?>"> <?= $i; ?> </a>
                       </li>
                   <?php }; ?>
-                  <li style="list-style: none !important;list-style-type: none !important;" <?php if($page >= $total_pages){ echo "class='activee'"; } else { echo "class='disable'"; }?>>
+                  <li style="list-style: none !important;list-style-type: none !important;"  class="disable">
                     <a <?php if($page < $total_pages) { echo "href='?page=$next_page#solution''"; } ?>><b><i class="bx bx-chevron-right"></i></b></a>
                   </li>
                 </ul>

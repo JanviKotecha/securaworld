@@ -22,6 +22,5 @@
   // $result=$qm->getRecord("profile","*","id=1");   
   // $row_con_info = $result->fetch_assoc();
 
-  $page = "home";
   
 ?>

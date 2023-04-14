@@ -2,29 +2,13 @@
 <html lang="en">
 <?php @include("include/secureConfig.php");
    $page_title = "about";
-  if(isset($_GET['id'])){
-    $res=$qm->getRecord("blog_post","img","id=".$_GET['id']);
-    if(mysqli_num_rows($res)>0){
-      $qm->deleteRecord("blog_post","id=".$_GET['id']);
-      $result=mysqli_fetch_array($res);
-      unlink(UPLOAD_ABOUT_URL.$result['img']);
-      $_SESSION['alert_msg'] .= "<div class='msg_success'>Blog Post deleted successfully.</div>";
-      header("location:blog_post.php");
-      exit;
-    }
-    else{
-      $_SESSION['alert_msg'] .= "<div class='msg_error'>Somthing wrong.</div>";
-      header("location:dashbord.php");
-      exit;
-    }
-  }
 ?>
   <head>
     <?php include("include/head.php"); ?>
   </head>
   <body>
     <div class="container-scroller">
-    <?php include("include/navbar.php");?>
+      <?php include("include/navbar.php");?>
       <div class="container-fluid page-body-wrapper">
         <?php include("include/sidebar.php");?>
         <div class="main-panel">

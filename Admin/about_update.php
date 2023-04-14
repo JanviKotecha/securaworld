@@ -12,31 +12,61 @@
     $vc=addslashes($vc);
     $mc=addslashes($mc);
 
-    if(isset($_FILES['vimg']['tmp_name']) && !empty($_FILES['vimg']['tmp_name']) && ($_FILES['mimg']['tmp_name']) && !empty($_FILES['mimg']['tmp_name']) && ($_FILES['miimg']['tmp_name']) && !empty($_FILES['miimg']['tmp_name'])){
+    if(isset($_FILES['vimg']['tmp_name']) && !empty($_FILES['vimg']['tmp_name'])){
       $vimg=$_FILES['vimg']['name'];
-      $mimg=$_FILES['mimg']['name'];
-      $miimg=$_FILES['miimg']['name'];
       $ext=strtolower(pathinfo($_FILES['vimg']['name'], PATHINFO_EXTENSION));
-      $ext1=strtolower(pathinfo($_FILES['mimg']['name'], PATHINFO_EXTENSION));
-      $ext2=strtolower(pathinfo($_FILES['miimg']['name'], PATHINFO_EXTENSION));
       $allowd = array("jpg","png","jpeg","gif");
 
       if(in_array($ext,$allowd)){
         $a=move_uploaded_file($_FILES['vimg']['tmp_name'],UPLOAD_ABOUT_URL.$vimg);
-        $b=move_uploaded_file($_FILES['mimg']['tmp_name'],UPLOAD_ABOUT_URL.$mimg);
-        $c=move_uploaded_file($_FILES['miimg']['tmp_name'],UPLOAD_ABOUT_URL.$miimg);
-        $sel=$qm->getRecord("about","v_img,m_img,mi_img","id=1"); 
+        $sel=$qm->getRecord("about","v_img","id=1"); 
         if(mysqli_num_rows($sel) > 0){
           $result=mysqli_fetch_array($sel);
           unlink(UPLOAD_ABOUT_URL.$result['v_img']);
-          unlink(UPLOAD_ABOUT_URL.$result['m_img']);
-          unlink(UPLOAD_ABOUT_URL.$result['mi_img']);
-        }  
-        $res=$qm->updateRecord("about","a_desc='".$about."',v_cont='".$vc."',m_cont='".$mc."',v_img='".$vimg."',m_img='".$mimg."',mi_img='".$miimg."'","id=1");
-        $_SESSION['alert_msg'] .= "<div class='msg_success'>About Updated Successfully.</div>";
-        header("location:about.php");
+          $res=$qm->updateRecord("about","a_desc='".$about."',v_cont='".$vc."',m_cont='".$mc."',v_img='".$vimg."'","id=1");
+        }
+      }    
+      else
+      { 
+        echo "<script>alert('Image is not formeted');history.back();</script>";
         exit;
-    }    
+      }     
+    }
+    if(isset($_FILES['mimg']['tmp_name']) && !empty($_FILES['mimg']['tmp_name'])){
+      $mimg=$_FILES['mimg']['name'];
+      $ext=strtolower(pathinfo($_FILES['mimg']['name'], PATHINFO_EXTENSION));
+      $allowd = array("jpg","png","jpeg","gif");
+
+      if(in_array($ext,$allowd)){
+        $a=move_uploaded_file($_FILES['mimg']['tmp_name'],UPLOAD_ABOUT_URL.$mimg);
+        $sel=$qm->getRecord("about","m_img","id=1"); 
+        if(mysqli_num_rows($sel) > 0){
+          $result=mysqli_fetch_array($sel);
+          unlink(UPLOAD_ABOUT_URL.$result['m_img']);
+          $res=$qm->updateRecord("about","a_desc='".$about."',v_cont='".$vc."',m_cont='".$mc."',m_img='".$mimg."'","id=1");
+        }
+      }    
+      else
+      { 
+        echo "<script>alert('Image is not formeted');history.back();</script>";
+        exit;
+      }     
+    }
+    if(isset($_FILES['miimg']['tmp_name']) && !empty($_FILES['miimg']['tmp_name'])){
+      $miimg=$_FILES['miimg']['name'];
+      $ext=strtolower(pathinfo($_FILES['miimg']['name'], PATHINFO_EXTENSION));
+      $allowd = array("jpg","png","jpeg","gif");
+
+      if(in_array($ext,$allowd)){
+        $a=move_uploaded_file($_FILES['miimg']['tmp_name'],UPLOAD_ABOUT_URL.$miimg);
+        $sel=$qm->getRecord("about","mi_img","id=1"); 
+        if(mysqli_num_rows($sel) > 0){
+          $result=mysqli_fetch_array($sel);
+          unlink(UPLOAD_ABOUT_URL.$result['mi_img']);
+          $res=$qm->updateRecord("about","a_desc='".$about."',v_cont='".$vc."',m_cont='".$mc."',mi_img='".$miimg."'","id=1");
+        
+        }
+      }    
       else
       { 
         echo "<script>alert('Image is not formeted');history.back();</script>";
@@ -146,16 +176,16 @@
                             <div class="col-md-12">
                                <hr><h2 style="text-align:center"> Our Milestone </h2><hr>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div class="form-group row">
                                     <div class="col-sm-12">
-                                        <br><br><img  src="<?php echo $row["mi_img"]=='' ? ABOUT_URL.'noimg.png' : (file_exists(UPLOAD_ABOUT_URL.$row["mi_img"]) ? ABOUT_URL.$row["mi_img"] :  ABOUT_URL.'noimg.png'); ?>" alt="about image" style="width:100%">
+                                        <br><br><img  src="<?php echo $row["mi_img"]=='' ? ABOUT_URL.'noimg.png' : (file_exists(UPLOAD_ABOUT_URL.$row["mi_img"]) ? ABOUT_URL.$row["mi_img"] :  ABOUT_URL.'noimg.png'); ?>" alt="about image" style="width:200px">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4" >
+                            <div class="col-md-9" >
                                 <div class="form-group row">
-                                    <div class="col-sm-12"  style="margin-top:180px">
+                                    <div class="col-sm-12"  style="margin-top:100px">
                                         <label for="file">Select Milestone</label>
                                         <input type="file" class="form-control" name="miimg" />
                                     </div>

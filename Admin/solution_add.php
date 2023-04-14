@@ -4,29 +4,25 @@
   $page_title = "solution";
   if(isset($_POST['add_solution']))
   {
-    if( !empty($_POST['tit']) && !empty($_POST['desc']  && !empty($_POST['ldesc']))) {
+    if( !empty($_POST['tit']) && !empty($_POST['desc']  && !empty($_POST['ldesc'])) && isset($_FILES['image']['tmp_name']) && !empty($_FILES['image']['tmp_name'])) {
       $image=$_FILES['image']['name'];
       $title=addslashes($_POST['tit']);
       $des=addslashes($_POST['desc']);
       $ldesc=addslashes($_POST['ldesc']);
-      $insert=$qm->insertRecordReturn("solution","tit,des,ldesc","'".$title."','".$des."','".$ldesc."'");
-
-      if(isset($_FILES['image']['tmp_name']) && !empty($_FILES['image']['tmp_name'])){
-        $supported_image = array('gif','jpg','jpeg','png');  
-        $ext = strtolower(pathinfo($image, PATHINFO_EXTENSION));
-        $Img = time().".".$ext;
-        if (in_array($ext, $supported_image) ) {
-          $qm->UpdateRecord("solution","img='".$Img."'","id=".$insert);
-          move_uploaded_file($_FILES["image"]["tmp_name"],UPLOAD_SOLUTION_URL.$Img);
-          $_SESSION['alert_msg'] .= "<div class='msg_success'>solution added successfully.</div>";
-          header("location:solution.php");
-          exit;  
-        }
-        else{
-          echo "<script>alert('Image is not formeted');history.back();</script>";
-          exit;
-        } 
+      $supported_image = array('gif','jpg','jpeg','png');  
+      $ext = strtolower(pathinfo($image, PATHINFO_EXTENSION));
+      $Img = time().".".$ext;
+      if (in_array($ext, $supported_image) ) {
+        $insert=$qm->insertRecord("solution","tit,des,ldesc,img","'".$title."','".$des."','".$ldesc."','".$Img."'");
+        move_uploaded_file($_FILES["image"]["tmp_name"],UPLOAD_SOLUTION_URL.$Img);
+        $_SESSION['alert_msg'] .= "<div class='msg_success'>solution added successfully.</div>";
+        header("location:solution.php");
+        exit;  
       }
+      else{
+        echo "<script>alert('Image is not formeted');history.back();</script>";
+        exit;
+      } 
       $_SESSION['alert_msg'] .= "<div class='msg_success'>solution added successfully.</div>";
       header("location:solution.php");
       exit;         

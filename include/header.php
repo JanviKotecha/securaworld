@@ -16,7 +16,7 @@
 						<li class="menu-item-has-children">
 						<a href="index.php" class="<?php echo $page =='index' ? 'active2' : '' ;?>">Home</a>
 						</li>
-             <li class="menu-item-has-children">
+           				 <li class="menu-item-has-children">
 							<a href="solutions.php"  class="<?php echo $page =='solutions' ? 'active2' : '' ;?>">Solution</a>
 							<!-- <div class="menu-subs menu-mega menu-column-3">
 								<div class="d-flex one">
@@ -68,7 +68,7 @@
 							</div> -->
 						</li>
 						<li class="menu-item-has-children">
-							<a href="#">Products</a>
+							<a href="products.php"  class="<?php echo $page =='products' ? 'active2' : '' ;?>">Products</a>
 							<!-- <div class="menu-subs menu-mega menu-column-2 d-block">
 								<div class="d-flex one">
 							
@@ -231,18 +231,25 @@
 							<a href="#">Software Download</a>
 							<div class="menu-subs menu-column-1 text-center">
 								<p class="menusub-title">Body Temperature Camera Software’s</p>
-								
-								<button class="menusub-btn mt-2">
+								<?php $result=$qm->getRecord("software");
+								if (mysqli_num_rows($result)>0) {
+									$row=mysqli_fetch_array($result); ?>
+								<a href="<?php echo SOFTWARE_URL.$row['firmware']; ?>" class="menusub-btn mt-2" downloade>
 									<span class="subbtn-text" style="background:linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
 									Firmware</span>
-								</button>
-								<button class="menusub-btn mt-2">
+								</a>
+								<a  href="<?php echo SOFTWARE_URL.$row['vmssoftware']; ?>" class="menusub-btn mt-2" downloade >
 									<span class="subbtn-text" style="background:linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
 									VMS Client Software</span>
-								</button>
+								</a>
+								<a href="<?php echo SOFTWARE_URL.$row['vmspdf']; ?>"class="menusub-btn mt-2" target="blank">
+									<span class="subbtn-text" style="background:linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+									VMS Datasheet</span>
+								</a>
+							<?php } ?>
 							</div>
 						</li>
-						<li><a href="#">E-Waste</a></li>
+						<li><a href="ewaste.php"  class="<?php echo $page =='ewaste' ? 'active2' : '' ;?>">E-Waste</a></li>
 					</ul>
 				</nav>
 			</div>

@@ -54,7 +54,7 @@
               $row=mysqli_fetch_array($result); ?>
               <article class="entry entry-single">
                 <div class="entry-img">
-                  <img src="<?php echo $row["img"]=='' ? BLOG_URL.'noimg.png' : (file_exists(UPL_BLOG_URL.$row["img"]) ? BLOG_URL.$row["img"] :  BLOG_URL.'noimg.png'); ?>" alt="" class="img-fluid">
+                  <img src="<?php echo $row["img"]=='' ? PRODUCT_URL.'noimg.png' : (file_exists(UPL_PRODUCT_URL.$row["img"]) ? PRODUCT_URL.$row["img"] :  PRODUCT_URL.'noimg.png'); ?>" alt="" class="img-fluid">
                 </div>
                 <h2 class="entry-title">
                   <?php echo $row['tit']; ?>
@@ -105,7 +105,7 @@
                     if (mysqli_num_rows($result) > 0) {
                       while ($row=mysqli_fetch_array($result)) { ?>
                         <div class="post-item clearfix">
-                          <img src="<?php echo $row["img"]=='' ? BLOG_URL.'noimg.png' : (file_exists(UPL_BLOG_URL.$row["img"]) ? BLOG_URL.$row["img"] :  BLOG_URL.'noimg.png'); ?>" alt="">
+                          <img src="<?php echo $row["img"]=='' ? PRODUCT_URL.'noimg.png' : (file_exists(UPL_PRODUCT_URL.$row["img"]) ? PRODUCT_URL.$row["img"] :  PRODUCT_URL.'noimg.png'); ?>" alt="">
                           <h4><a href="blog-detail.php?id=<?php echo $row['id']; ?>" style="overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;"><?php echo $row['tit']; ?></a></h4>
                           <time datetime="<?php echo $row['dt']; ?>"><?php echo $row['dt']; ?></time>
                         </div>

@@ -11,7 +11,6 @@
 				echo($query);
 			return mysqli_query($con,$query);
 		}
-		
 		function getOneRecord($table,$param = "*",$where = "",$extra = "",$prntQry = "No"){
 			global $con;
 			if($prntQry == "Yes")
