@@ -35,8 +35,7 @@
                   <div class="col-md-5 d-flex align-items-stretch cbg">
                     <div class="info-wrap  w-100 p-lg-5 p-4">
                       <h3 class="mb-4 mt-md-4" style="color:#fff">Information</h3>
-                      <p style="color:#fff">Lorem ipsum dolor sit amet consectetur.um dolor sit amet consectetur.vLorem ipsum dolor sit amet consectetur. <br><br></p>
-                      <div class="info">
+                      <p style="color:#fff">Got a question on SECURA? Have some suggestion? Contact us.We respect your privacy and will not share this information with any other agency.<div class="info">
                         <div class="address">
                           <i class="bi bi-geo-alt"></i>
                           <p>18 Pencai Terrace, Treorchy, CF42 6HL</p>

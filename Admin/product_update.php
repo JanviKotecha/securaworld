@@ -62,20 +62,36 @@
   }  
   if(isset($_GET['id']))
   {
-    $id=$_GET['id'];
-    $res = $qm->getRecord("product","*","id=".$id);
-    if(mysqli_num_rows($res) > 0) {
-      $row = mysqli_fetch_array($res);
+    if($_GET['id']!='')
+    {
+      if(is_numeric($_GET['id']))
+      {
+        $id=$_GET['id'];
+        $res = $qm->getRecord("product","*","id=".$id);
+        if(mysqli_num_rows($res) > 0) {
+          $row = mysqli_fetch_array($res);
+        } else {
+          $_SESSION['alert_msg'] .= "<div class='msg_error'>Data can't be found.</div>";
+          header("location:product.php");
+          exit;
+        } 
+      } else {
+      $_SESSION['alert_msg'] .= "<div class='msg_error'>Only numeric value required.</div>";
+      header("location:product.php");
+      exit;
+    }
     } else {
       $_SESSION['alert_msg'] .= "<div class='msg_error'>Data can't be found.</div>";
       header("location:product.php");
       exit;
-    } 
-  } else {
-    $_SESSION['alert_msg'] .= "<div class='msg_error'>Data can't be found.</div>";
-    header("location:product.php");
-    exit;
+    }
   }
+  else {
+  $_SESSION['alert_msg'] .= "<div class='msg_error'>Data can't be found.</div>";
+  header("location:product.php");
+  exit;
+  } 
+
 ?>
 <html lang="en">
   <head>
@@ -111,8 +127,7 @@
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-12">
+       
                 <div class="card">
                   <div class="card-body">
                     <form class="form-sample" action="" method="Post" enctype="multipart/form-data"> 
@@ -166,8 +181,9 @@
                               <label class="col-sm-3 col-form-label" for="basicinput">SubCategory</label>
                               <div class="col-sm-9">
                                 <select   name="subcategory"  id="subcategory" class="form-control" required>
-                                    <option value="<?php echo htmlentities($row['subcatid']);?>"><?php echo htmlentities($row['subcatname']);?></option>
-                                  </select>
+                                  <option value="<?php echo htmlentities($row['subcatid']);?>"><?php echo htmlentities($row['subcatname']);?></option>
+                                  <option value="1">No Sub Category</option>  
+                                </select>
                               </div>
                             </div>
                           </div>           
@@ -212,8 +228,7 @@
                     </form>
                   </div>
                 </div>
-              </div>
-            </div>
+              
           </div>
           <?php @include("include/footer.php");?>
         </div>

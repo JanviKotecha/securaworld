@@ -3,7 +3,7 @@ include "include/config.php";
 if(isset($_POST['submit'])) {
 	  $insert=$qm->insertRecord("contact","nm,mob,eml,msg,dt","'".$_POST['nm']."','".$_POST['mob']."','".$_POST['eml']."','".$_POST['msg']."','".$getDt."'"); 
 	 
-	  $to = "janvi.kotecha0@gmail.com";
+	  $to = "janvi.kotecha3132@gmail.com";
     $subject = "Contact form submited by : '".$_POST['nm']."' ";
    
     $message = "<h1>Name : '".$_POST['nm']."'</h1>";
@@ -16,6 +16,7 @@ if(isset($_POST['submit'])) {
     $header .= "Content-type: text/html\r\n";
 
     mail($to,$subject,$message,$header);
+    exit;
 ?>
 	  <script>
 	    alert("Contact Information Send Successfully...");

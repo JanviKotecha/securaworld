@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php include "include/config.php";  $page='index'; ?>
+ <?php include "include/config.php";  $page='secura'; ?>
 <html lang="en">
   <head>
     <title>Home</title>
@@ -34,7 +34,7 @@
             <div class="col-lg-6">
               <h2>AI Powered Video Analytics for CCTV Surveillance</h2>
               <h5>Secura AI-based intelligent video analytics is the power behind the CCTV surveillance in many Smart Cities, Airports, Railways and Law Enforcemnt Agencies</h5>
-              <a class="btn">Explore</a>
+              <a class="btn" href="products.php">Explore</a>
             </div>
             <div class="col-lg-6">
               <center><img src="images/bg/home.png" alt="" style="max-width:75%"></center>
@@ -95,7 +95,7 @@
             <div class="col-lg-6 right" >
               <h2 >A pioneer in Video Surveillance and Analytics</h2>
               <h5>Secura is a pioneer in the Indian Electronic Surveillance Industry with widest CCTV deployment pan India. Our biggest goal is to bring you peace of mind, through state-of-the-art surveillance solutions that are consistently strengthened through innovation.The quality of our offerings reflects in our diverse clientele, ranging from high-profile government and public sector departments to numerous private sector clients and homeowners. Secura products are made in India, using indigenous R&D and manufacturing processes, ensuring 100% data security.</h5>
-              <a class="btn">Read More</a>
+              <a class="btn" href="solutions.php">Read More</a>
             </div>
           </div>
         </div>
@@ -183,17 +183,6 @@
                   $total_records = $row[0]; 
                 } 
                 $total_pages = ceil($total_records / $limit); //count page ?>
-                <!-- <div class="blog-pagination">
-                    <ul class="justify-content-center">    
-                      <li <?php if($page <= 1){ echo "class='disabled'"; }else { echo "class='active'"; } ?>>
-                        <a <?php if($page > 1){ echo "href='?page=$previous_page'"; } ?>>Previous</a>
-                      </li>   
-                      <li <?php if($page >= $total_pages){ echo "class='disabled'"; } else { echo "class='active'"; }?>>
-                        <a <?php if($page < $total_pages) { echo "href='?page=$next_page'"; } ?>>Next</a>
-                      </li>
-                    </ul>
-                  </div>
-              </div> -->
         </div>
       </section>
       <section id="about" class="about mb-5">
@@ -207,68 +196,32 @@
         </div>
         <div class="container mt-5" style="margin-top: 0rem!important;">
           <div class="tab ms-1">
-            <button class="" onclick="openTab(event, 'coding', 'arrow1')" id="defaultOpen">
-              <img src="images/bg/home.png" alt="" class="leftImg">
-              <span id="arrow1" ></span>
+          <?php 
+          $gal = array();
+          $result=$qm->getRecord("product"); 
+            if (mysqli_num_rows($result)>0) {
+              while ($row=mysqli_fetch_array($result)) { 
+              $gal[]=$row; ?>
+            <button class="" onclick="openTab(event, '<?php echo $row['tit'];?>', 'arrow<?php echo $row['id']; ?>')"  <?php  if($row['id'] == '1') { ?>id='defaultOpen' <?php } ?> >
+              <img src="<?php echo $row["img"]=='' ? PRODUCT_URL.'noimg.png' : (file_exists(UPL_PRODUCT_URL.$row["img"]) ? PRODUCT_URL.$row["img"] :  PRODUCT_URL.'noimg.png'); ?>" alt="" class="leftImg">
+              <span id="arrow<?php echo $row['id']; ?>" ></span>
             </button>
-            <button class="" onclick="openTab(event, 'wordPress', 'arrow2')">
-              <img src="images/bg/home.png" alt="" class="leftImg" >
-              <span id="arrow2"></span>
-            </button>
-            <button class="" onclick="openTab(event, 'videos', 'arrow3')">
-              <img src="images/bg/home.png" alt="" class="leftImg">
-              <span id="arrow3"></span>
-            </button>
-            <button class="" onclick="openTab(event, 'photoshop', 'arrow4')">
-              <img src="images/bg/home.png" alt="" class="leftImg" >
-              <span id="arrow4"></span>
-            </button>
+            <?php } } ?>
           </div>
-          
-          <div id="coding" class="tabcontent mt-1">
+          <?php foreach ($gal as $g) { ?>
+          <div id="<?php echo $g['tit']; ?>" class="tabcontent mt-1">
             <div style="display :flex; justify-content: center;">
-              <img src="images/bg/home.png" alt="" class="pion2 mt-2" style="display:flex; justify-content: center;">
+              <img src="<?php echo $g["img"]=='' ? PRODUCT_URL.'noimg.png' : (file_exists(UPL_PRODUCT_URL.$g["img"]) ? PRODUCT_URL.$g["img"] :  PRODUCT_URL.'noimg.png'); ?>" alt="" class="pion2 mt-2" style="display:flex; justify-content: center;">
             </div>
             <div class="mb-2 nheading" style="display :flex; justify-content: space-between;">
-              <h3>Coding</h3>
-              <button class="viewBtn">View All</button>
+              <h3><?php echo $g['tit']; ?></h3>
+              <a href="products.php" style="text-decoration:none !important;padding:15px;" class="viewBtn">View All</a>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo debitis pariatur harum expedita maiores aliquid, iure distinctio voluptas recusandae velit, officia ratione praesentium consequatur rem dolorem maxime architecto consectetur sint?</p>
-          
+            <p><b>Model No : <?php echo $g['modno'] ?></b></p>
+            <p><?php echo nl2br($g['lngdes']); ?></p>
           </div>
-          <div id="wordPress" class="tabcontent mt-1">
-            <div style="display :flex; justify-content: center;">
-              <img src="images/bg/home.png" alt="" class="pion2 mt-2" style="display:flex; justify-content: center;">
-            </div>
-            <div class="mb-2 nheading" style="display :flex; justify-content: space-between;">
-              <h3>WordPress</h3>
-              <button class="viewBtn">View All</button>
-            </div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo debitis pariatur harum expedita maiores aliquid, iure distinctio voluptas recusandae velit, officia ratione praesentium consequatur rem dolorem maxime architecto consectetur sint?</p>
-          
-          </div>
-          <div id="videos" class="tabcontent mt-1">
-            <div style="display :flex; justify-content: center;">  
-              <img src="images/bg/home.png" alt="" class="pion2 mt-2" style="display:flex; justify-content: center;">
-            </div>
-            <div class="mb-2 nheading" style="display :flex; justify-content: space-between;">
-              <h3>Videos</h3>
-              <button class="viewBtn">View All</button>
-            </div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo debitis pariatur harum expedita maiores aliquid, iure distinctio voluptas recusandae velit, officia ratione praesentium consequatur rem dolorem maxime architecto consectetur sint?</p>
-          
-          </div>
-          <div id="photoshop" class="tabcontent mt-1">
-            <div style="display :flex; justify-content: center;">  
-              <img src="images/bg/home.png" alt="" class="pion2 mt-2" style="display:flex; justify-content: center;">
-            </div>
-              <div class="mb-2 nheading" style="display :flex; justify-content: space-between;">
-              <h3>Photoshop</h3>
-              <button class="viewBtn">View All</button>
-            </div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo debitis pariatur harum expedita maiores aliquid, iure distinctio voluptas recusandae velit, officia ratione praesentium consequatur rem dolorem maxime architecto consectetur sint?</p>
-           
-          </div>
+          <?php } ?>
+      
         </div>
       </section>
 

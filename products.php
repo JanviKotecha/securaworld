@@ -20,21 +20,29 @@
         </div>
       </div>
     </section>
-      <section class="blog" >
+      <section class="blog"  style="padding:0px !important">
         <div class="container" data-aos="fade-up">
         <h2 class="h2" style="margin-top:10px !important;margin-bottom:10px !important">Product categories <br></h2>
+        </div>
+      </section>
+      <section id="product" class="product  section" >
+        <div class="container">
           <div class="row">
-          <?php 
-             $result=$qm->getRecord("product pro Left Join product_cate proc ON pro.category=proc.id Group By proc.categoryName","pro.id,pro.img,pro.tit,pro.lngdes,pro.dt,pro.category,proc.categoryName as procat,proc.img as blc,count(proc.categoryName) as blcount");
-             //$result=$qm->getRecord("product Group By cate","cate,count(cate) as duplicates");
+          <?php $result=$qm->getRecord("product pro Left Join product_cate proc ON pro.category=proc.id Group By proc.categoryName","pro.id,pro.img,pro.tit,pro.lngdes,pro.dt,pro.category,proc.categoryName as procat,proc.img as blc,count(proc.categoryName) as blcount");
             if (mysqli_num_rows($result) > 0) {
               while ($row=mysqli_fetch_array($result)) { ?>
-            <div class="card" style="width: 18rem;margin:10px;padding-top:10px;background:#F9F9F9;border-radius: 20px;border:0px">
-              <img class="card-img-top" src="<?php echo $row["img"]=='' ? PRODUCT_URL.'noimg.png' : (file_exists(UPL_PRODUCT_URL.$row["blc"]) ? PRODUCT_URL.$row["blc"] :  PRODUCT_URL.'noimg.png'); ?>" alt="Card image cap" style="padding-right:20px;padding-left:20px;">
-              <div class="card-body" style="text-align:center;font-weight:400;font-size:18px">
-                <a href="blog.php?id=<?php echo $row['category']; ?>" style="color:#7D7D7D;"><?php echo $row['procat']; ?></a>
+            <div class="col-lg-3 mt-8" style="margin-bottom:120px">
+             <div class="member h-100">
+                <div class="member-info" >
+                  <img  src="<?php echo $row["img"]=='' ? PRODUCT_URL.'noimg.png' : (file_exists(UPL_PRODUCT_URL.$row["blc"]) ? PRODUCT_URL.$row["blc"] :  PRODUCT_URL.'noimg.png'); ?>" class="img-fluid" alt="" >
+                </div>
               </div>
-            </div>
+              <p class="producp"><?php echo $row['procat']; ?></p>
+              <form action="product_category.php" method="Post">
+                <input type="hidden" value="<?php  echo $row['category']; ?>" name="id">
+                <button type="submit" name="submit" style="color:#E71D25;background:#fff;border:none">See All</button>
+              </form>
+              </div>
             <?php } } ?>
           </div>
         </div>

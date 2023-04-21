@@ -42,20 +42,35 @@
   } 
   if(isset($_GET['id']))
   {
-    $id=$_GET['id'];
-    $res = $qm->getRecord("sub_cate","*","id=".$id);
-    if(mysqli_num_rows($res) > 0) {
-      $row = mysqli_fetch_array($res);
+    if($_GET['id']!='')
+    {
+      if(is_numeric($_GET['id']))
+      {
+        $id=$_GET['id'];
+        $res = $qm->getRecord("sub_cate","*","id=".$id);
+        if(mysqli_num_rows($res) > 0) {
+          $row = mysqli_fetch_array($res);
+        } else {
+          $_SESSION['alert_msg'] .= "<div class='msg_error'>Data can't be found.</div>";
+          header("location:product_subcate.php");
+          exit;
+        } 
+      } else {
+      $_SESSION['alert_msg'] .= "<div class='msg_error'>Only numeric value required.</div>";
+      header("location:product_subcate.php");
+      exit;
+    }
     } else {
       $_SESSION['alert_msg'] .= "<div class='msg_error'>Data can't be found.</div>";
       header("location:product_subcate.php");
       exit;
-    } 
-  } else {
-    $_SESSION['alert_msg'] .= "<div class='msg_error'>Data can't be found.</div>";
-    header("location:product_subcate.php");
-    exit;
+    }
   }
+  else {
+  $_SESSION['alert_msg'] .= "<div class='msg_error'>Data can't be found.</div>";
+  header("location:product_subcate.php");
+  exit;
+  } 
 ?>
 <html lang="en">
   <head>

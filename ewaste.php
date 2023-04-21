@@ -27,12 +27,10 @@
                 <div class="sidebar">
                     <div class="sidebar-item categories">
                         <?php 
-                        // $result=$qm->getRecord("product pro Left Join product_cate proc ON pro.cate=proc.id Group By proc.cate","pro.id,pro.img,pro.tit,pro.srtdes,pro.lngdes,pro.dt,pro.cate,proc.cate as blc,count(proc.cate) as blcount");
                         $result = $qm->getRecord("product_cate");
-                        //$result=$qm->getRecord("product Group By cate","cate,count(cate) as duplicates");
                         if (mysqli_num_rows($result) > 0) {
                             while ($row=mysqli_fetch_array($result)) { ?>
-                              <a href="#" class="category"><?php echo $row['cate']?></a><br><br><br>    
+                              <a href="product_category.php?cid=<?php echo $row['id']; ?>" class="category"><?php echo $row['categoryName']?></a><br><br><br>    
                         <?php } } ?>
                     </div>
                 </div>
@@ -46,7 +44,7 @@
             </div>
           </div>
         </div>
-      </section>
+    </section>
     </main>
     <!-- ======= Footer ======= -->
     <footer id="footer">

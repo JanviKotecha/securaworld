@@ -11,12 +11,21 @@
 <link rel="stylesheet" href="assets/css/demo_1/style.css">
 <link rel="shortcut icon" href="<?php echo IMAGE_URL; ?>favicon.png" />
 <style type="text/css">
+	.table td, .table th {
+    vertical-align: none !important;
+	text-align:left !important;
+    font-size: 0.875rem !important;
+    line-height: 1;
+    white-space: nowrap;
+    height: 35px;
+    padding: 12px 15px;
+}
   .card .card-title {
       font-size:20px;
   }
   .resTable {
       width: 100%;
-      overflow-x: scroll;
+      
   }
   .activerow
   {
@@ -75,7 +84,8 @@
 }
 
 .dataTables_wrapper {
-	overflow: hidden
+	overflow: hidden;
+	overflow-x:scroll;
 }
 .dataTables_wrapper select, .dataTables_wrapper input, .dataTables_wrapper label {
 	margin: 0

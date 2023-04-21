@@ -34,11 +34,10 @@
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Sub Category<a href="product_subcate_add.php" class="btn btn-primary" style="float: right;">Add SubCategory</a></h4>
-                    <div class="module">
-                        <div class="module-body table">
-                            <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
-                                <thead>
+                    <h4 class="card-title">Product Subcategory<a href="product_subcate_add.php" class="btn btn-primary" style="float: right;">Add Product SubCategory</a></h4>
+                    <div class="resTable">
+                      <table class="datatable-1 table table-bordered table-striped	 display" width="100%">
+                        <thead> 
                                     <tr>
                                     <th>#</th>
                                     <th>Image</th>

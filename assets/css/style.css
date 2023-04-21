@@ -469,6 +469,14 @@ html {
   color: #F37E60 !important;
   border-bottom: 2px solid #F37E60  !important;
 }
+.active-cat{
+  padding: 10px;
+  color: #F37E60 !important;
+  border-bottom: 2px solid #F37E60 !important;
+  background: rgba(243, 126, 96, 0.1) !important;
+  border-radius: 10px;
+  border: 1px solid transparent !important;
+}
 .act{
   background: linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%) ;
 border-radius: 10px !important;
@@ -1697,6 +1705,112 @@ section {
   padding: 0;
 }
 
+
+/*--------------------------------------------------------------
+# Our Product Category
+--------------------------------------------------------------*/
+.product .member {
+  position: relative;
+  background: #F9F9F9;
+  border-radius: 10px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.product .member:hover{
+  border-radius: 30px;
+  border:2px solid #E71D25;
+  border-radius: 10px !important;
+}
+.product .member img {
+  justify-content: center;
+  display: flex;
+  transform: scale(0.95);
+}
+.product .member h4 {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 23px;
+line-height: 136.5%;
+margin: 10px 0 0 0;
+color: #000000;
+}
+.color{
+  /* background: linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; */
+  background:#fff;
+  border:none;
+  font-weight: 400;
+  color:#000 ;
+}
+.producp {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  text-align: center;
+  color: #7D7D7D;
+  margin-top: 20px !important;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-bottom: 0rem !important;
+}
+
+.product .member span {
+  display: block;
+  font-size: 15px;
+  padding-bottom: 10px;
+  position: relative;
+  font-weight: 500;
+}
+
+.product .member span::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 1px;
+  background: #dee2e6;
+  bottom: 0;
+  left: 0;
+}
+
+
+
+.product .member .social {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.product .member .social a {
+  transition: ease-in-out 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  background: #8795a4;
+}
+
+.product .member .social a i {
+  color: #fff;
+  font-size: 16px;
+  margin: 0 2px;
+}
+
+.product .member .social a + a {
+  margin-left: 8px;
+}
+
+
 /*--------------------------------------------------------------
 # Our Team
 --------------------------------------------------------------*/
@@ -1779,8 +1893,6 @@ color: #000000;
   font-size: 16px;
   margin: 0 2px;
 }
-
-
 
 .team .member .social a + a {
   margin-left: 8px;

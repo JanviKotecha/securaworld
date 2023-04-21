@@ -19,5 +19,4 @@
 	define("UPL_ABOUT_URL", UPL_IMAGE_URL."about/");
 	define("UPL_SOLUTION_URL", UPL_IMAGE_URL."solution/");
 	define("UPL_SOFTWARE_URL", UPL_IMAGE_URL."software/");
-	$page_title = "Home";
 ?>
