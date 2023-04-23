@@ -7,6 +7,19 @@
     <?php include("include/head.php");
     ?>
   </head>
+  <style>
+    .sidebar-mob{
+      display: none;
+    }
+    @media (max-width: 1000px){
+      .sidebar-mob{
+      display: block;
+    }
+    .sidebar{
+      display: none;
+    }
+}
+  </style>
   <body>
     <!-- ======= Header ======= -->
     <header id="header" class="header">
@@ -37,28 +50,53 @@
                           <?php 
                           $result = $qm->getRecord("product_cate");
                           if (mysqli_num_rows($result) > 0) {
-                              while ($row=mysqli_fetch_array($result)) { 
-                                $catid=$row['id'];
-                                ?>  
-                                <?php if(isset($_POST['id'])){ ?>
+                            while ($row=mysqli_fetch_array($result)) { 
+                              $catid=$row['id'];
+                              ?>  
+                               <?php if(isset($_POST['id'])){ ?>
                                 <a href="product_category.php?cid=<?php echo $catid ?>" class="color <?php if($row['id'] == $_POST['id']){echo 'active-cat';} ?>"> <?php echo $row['categoryName']?></a><br><br>
                                 <?php } ?>
                                 <?php if(isset($_GET['cid'])){ ?>
                                 <a href="product_category.php?cid=<?php echo $catid ?>" class="color <?php if($row['id'] == $_GET['cid']){echo 'active-cat';} ?>"> <?php echo $row['categoryName']?></a><br><br>
                                 <?php } ?> 
-                            
-                                <?php $subcate = $qm->customQuery("select * from sub_cate WHERE categoryid=$catid"); 
+                                <?php if(isset($_GET['catid'])){ ?>
+                                <a href="product_category.php?cid=<?php echo $catid ?>" class="color <?php if($row['id'] == $_GET['catid']){echo 'active-cat';} ?>"> <?php echo $row['categoryName']?></a><br><br>
+                                <?php } ?> 
+                              <?php $subcate = $qm->customQuery("select * from sub_cate WHERE categoryid=$catid"); 
+                              if (mysqli_num_rows($result) > 0) {
+                              while ($rowdata=mysqli_fetch_array($subcate)) {  
+                              if($rowdata['subcategory'] != '--') { ?>
+                              <ul>
+                                  <li>
+                                    <a href="product_category.php?catid=<?php echo $rowdata['categoryid']; ?>&subcateid=<?php echo $rowdata['id']; ?>"  name="subcate" style="font-weight: 500;" class="color"><?php echo $rowdata['subcategory'];  ?></a>
+                                  </li>
+                              </ul>
+                            <?php } }} ?>
+                        <?php } } ?>
+                      </div>
+                  </div>
+                   <div class="sidebar-mob">
+                      <div class="sidebar-item categories">
+                      <select name="category" class="form-control"  required>
+                      <option value="">Select Category</option>
+                      <?php $result = $qm->getRecord("product_cate");
+                          if (mysqli_num_rows($result) > 0) {
+                              while ($row=mysqli_fetch_array($result)) { 
+                                $catid=$row['id'];
+                                ?>  
+                            <option value="<?php echo $row['id'];?>"><?php echo $row['categoryName'];?></option>
+                            <?php $subcate = $qm->customQuery("select * from sub_cate WHERE categoryid=$catid"); 
                                 if (mysqli_num_rows($result) > 0) {
                                 while ($rowdata=mysqli_fetch_array($subcate)) {  
                                 if($rowdata['subcategory'] != '--') { ?>
-                                <ul>
-                                    <li>
-                                      <a href="product_category.php?catid=<?php echo $rowdata['categoryid']; ?>&subcateid=<?php echo $rowdata['id']; ?>"  name="subcate" style="font-weight: 500;" class="color"><?php echo $rowdata['subcategory'];  ?></a>
-                                    </li>
-                                </ul>
+                                <option value="">
+                                     --<?php echo $rowdata['subcategory'];  ?></a>
+                                </option>
+                               
                               <?php } }} ?>
                           <?php } } ?>
-                      </div>
+                                </select>
+                        </div>
                   </div>
               </div>
               <div class="col-lg-9 subLeft3">
@@ -84,11 +122,7 @@
                                     </div>
                                 </div>
                                   <p class="producp"><?php echo $row['tit']; ?></p>
-                                  
-                                  <form action="product_view.php" method="Post">
-                                    <input type="hidden" value="<?php  echo $row['id']; ?>" name="pid">
-                                    <button type="submit" name="psubmit" style="color:#E71D25;background:#fff;border:none">See All</button>
-                                  </form>
+                                  <a href="product_view.php?pid=<?php echo $row['id'];?>"  style="color:#E71D25;background:#fff;border:none">See All</a>
                               </div>
                           <?php } } ?>
                           </div>
