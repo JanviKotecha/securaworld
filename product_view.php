@@ -8,7 +8,7 @@
          ?>
       <style>
          a:hover {
-         color: #000;
+         color: #fff !important;
          }
       
       .sidebar-mob{
@@ -21,6 +21,10 @@
       .sidebar{
          display: none;
       }
+      .subLeft3{
+      padding:10px !important;
+      border-left: 2.5px solid transparent;
+    }
    }
       </style>
    </head>

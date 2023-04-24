@@ -43,7 +43,6 @@
       <div class="carousel-item active" style="background-image: url(images/bg/solution.png)">
         <div class="carousel-container">
           <div class="container">
-            <p style="text-align:left;"><a href="index.php" style="color:#fff !important">Home</a> - <a href="solutions.php" style="color:#fff !important">Solution</a></p>
             <h2 class="animate__fadeInDown">- Solutions Detail </h2>
           </div>
         </div>

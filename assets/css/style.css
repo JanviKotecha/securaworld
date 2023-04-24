@@ -470,10 +470,10 @@ html {
   border-bottom: 2px solid #F37E60  !important;
 }
 .active-cat{
-  padding: 10px;
+ 
   color: #F37E60 !important;
   border-bottom: 2px solid #F37E60 !important;
-  background: rgba(243, 126, 96, 0.1) !important;
+ 
   border-radius: 10px;
   border: 1px solid transparent !important;
 }
