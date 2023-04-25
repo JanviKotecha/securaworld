@@ -63,7 +63,7 @@
                                     <td> <?php echo htmlentities($row['creationDate']);?></td>
                                     <td><?php echo htmlentities($row['updationDate']);?></td>
                                     <td style="width: 50px;"><a class="btn btn-primary" href="product_subcate_update.php?id=<?php echo $row['id'];?>">Update</a></td>                             
-                                    <td style="width: 50px;"><a class="btn btn-danger" href="product_subcate.php?id=<?php echo $row['id'];?>" onclick="return confirm('Are you sure');">Delet</a><br/></td>
+                                    <td style="width: 50px;"><a class="btn btn-danger" href="product_subcate.php?id=<?php echo $row['id'];?>" onclick="return confirm('Are you sure to want to delete this item ?');">Delete</a><br/></td>
                                     </tr>
                                     <?php $cnt=$cnt+1; } } ?>
                             </table>

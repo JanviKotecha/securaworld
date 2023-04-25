@@ -52,7 +52,7 @@
                                 <td><?php echo $row['mob'];?></td>
                                 <td><?php echo $row['msg'];?></td>
                                 <td><?php echo $row['dt'];?></td>                             
-                                <td style="width: 50px;"><a class="btn btn-danger" href="cotact_detail.php?id=<?php echo $row['id'];?>" onclick="return confirm('Are you sure');">Delete</a><br/></td>
+                                <td style="width: 50px;"><a class="btn btn-danger" href="cotact_detail.php?id=<?php echo $row['id'];?>" onclick="return confirm('Are you sure to want to delete this item ?');">Delete</a><br/></td>
                               </tr>
                             <?php }
                             }

@@ -13,6 +13,15 @@
    .info-visible {
    display: block;
    }
+   a:hover{
+      color:#E71D25 !important
+   }
+   .sub-titlee{
+      color:black !important;
+      font-style: normal;
+      font-weight: 600 !important;
+      font-size: 13px !important;
+}
 </style>
 <div class="container">
    <div class="wrapper">
@@ -35,8 +44,8 @@
                </li>
                <?php $result=$qm->customQuery("SELECT * FROM solution  LIMIT 5"); ?>
                <li class="menu-item-has-children">
-                  <a href="solutions.php"  class="<?php echo $page =='solutions' ? 'active2' : '' ;?>">Solution</a>
-                  <div class="menu-subs menu-mega menu-column-2 d-block">
+                  <a href="solutions.php"  class="<?php echo $page =='solutions' ? 'active2' : '' ;?>">Solutions</a>
+                  <div class="menu-subs menu-mega menu-column-2" style="width:45% !important;">
                      <div class="d-flex one">
                         <div class="list-item sub-col-3 pe-4 subLeft" style="text-align:left">
                            <ul class="is-hover">
@@ -48,16 +57,15 @@
                                     <h4 class="sub-title"><?php echo $row['tit']; ?></h4>
                                  </a>
                               </li>
-                              <?php 
-                                 } } ?>
+                              <?php } } ?>
                            </ul>
                         </div>
                         <div class="list-item sub-col-3 ps-4">
                            <div class="card" style="width: 18rem;">
                               <div class="card-body info info-visible">
-							  <img height=100 class="card-img-top" src="<?php echo SOLUTION_URL ?>demo.jpg">
+							         <img height=100 class="card-img-top" src="<?php echo SOLUTION_URL ?>demo.jpg">
                                 <h5 class="card-title1">Speed Violation Detection</h5>
-								<p class="card-subtext">Secura Analytics software detects speed of vehicles crossing the camera view and raises speed violation alarm based on speed limit set</h5>
+								         <p class="card-subtext">Secura Analytics software detects speed of vehicles crossing the camera view and raises speed violation alarm based on speed limit set</h5>
                                  </p>
                               </div>
                               <?php
@@ -81,167 +89,270 @@
                   </div>
                </li>
                <li class="menu-item-has-children">
-							<a href="#">Products</a>
-							<div class="menu-subs menu-mega menu-column-2 d-block">
-								<div class="d-flex one">
-									<div class="list-item sub-col-4 pe-4 subLeft flex-row-reverse ">
-										<ul>
-											<li>
-												<a href="#" class="navSubLink">
-													<h4 class="sub-title">Box Camera</h4>
-												</a>																					
-											</li>
-											<li>
-												<a href="#" class="navSubLink">
-													<h4 class="sub-title">Bullet Camera</h4>
-												</a>
-											</li>
-											<li>
-												<a href="#" class="navSubLink">
-													<h4 class="sub-title">IP Camera</h4>
-												</a>
-											</li>
-											<li>
-												<a href="#" class="navSubLink">
-													<h4 class="sub-title">Dome Camera</h4>
-												</a>
-											</li>
-											<li>
-												<a href="#" class="navSubLink">
-													<h4 class="sub-title">DVR</h4>
-												</a>
-											</li>
-											<li>
-												<a href="#" class="navSubLink">
-													<h4 class="sub-title">Fish Eye Camera</h4>
-												</a>
-											</li>
-										</ul>
-										<h3 class="subTop-title">Product categories<h3>
-									</div>							
-									<div class="list-item text-center sub-col-6 ps-4">
-										<ul>
-											<li class="proList">
-												<a href="#" class="navProLink">
-													<img src="./images/solution/pngwing 3.png" />
-												</a>	
-												<p class="navProDesc" style="font-weight: 400;
-														font-size: 6px;
-														line-height: 136.5%;
-														color: #7D7D7D;">4 Mp Network Box Camera (version 4.1)</p>	
-												<a href="#" class="seeAllLink" style="background: linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%);
-														-webkit-background-clip: text;
-														-webkit-text-fill-color: transparent;
-														background-clip: text;
-														text-fill-color: transparent;
-														font-weight: 500;
-														font-size: 6px;
-														line-height: 136.5%;">See All</a>																			
-											</li>
-											<li class="proList">
-												<a href="#" class="navProLink">
-													<img src="./images/solution/pngwing 3.png" />
-												</a>
-												<p class="navProDesc" style="font-weight: 400;
-														font-size: 6px;
-														line-height: 136.5%;
-														color: #7D7D7D;">4 Mp Network Box Camera (version 4.1)</p>	
-												<a href="#" class="seeAllLink" style="background: linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%);
-														-webkit-background-clip: text;
-														-webkit-text-fill-color: transparent;
-														background-clip: text;
-														text-fill-color: transparent;
-														font-weight: 500;
-														font-size: 6px;
-														line-height: 136.5%;">See All</a>
-											</li>
-											<li class="proList">
-												<a href="#" class="navProLink">
-													<img src="./images/solution/pngwing 3.png" />
-												</a>
-												<p class="navProDesc" style="font-weight: 400;
-														font-size: 6px;
-														line-height: 136.5%;
-														color: #7D7D7D;">4 Mp Network Box Camera (version 4.1)</p>	
-												<a href="#" class="seeAllLink" style="background: linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%);
-														-webkit-background-clip: text;
-														-webkit-text-fill-color: transparent;
-														background-clip: text;
-														text-fill-color: transparent;
-														font-weight: 500;
-														font-size: 6px;
-														line-height: 136.5%;">See All</a>
-											</li>
-											<li class="proList">
-												<a href="#" class="navProLink">
-													<img src="./images/solution/pngwing 3.png" />
-												</a>
-												<p class="navProDesc" style="font-weight: 400;
-														font-size: 6px;
-														line-height: 136.5%;
-														color: #7D7D7D;">4 Mp Network Box Camera (version 4.1)</p>	
-												<a href="#" class="seeAllLink" style="background: linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%);
-														-webkit-background-clip: text;
-														-webkit-text-fill-color: transparent;
-														background-clip: text;
-														text-fill-color: transparent;
-														font-weight: 500;
-														font-size: 6px;
-														line-height: 136.5%;">See All</a>
-											</li>
-											<li class="proList">
-												<a href="#" class="navProLink">
-													<img src="./images/solution/pngwing 3.png" />
-												</a>
-												<p class="navProDesc" style="font-weight: 400;
-														font-size: 6px;
-														line-height: 136.5%;
-														color: #7D7D7D;">4 Mp Network Box Camera (version 4.1)</p>	
-												<a href="#" class="seeAllLink" style="background: linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%);
-														-webkit-background-clip: text;
-														-webkit-text-fill-color: transparent;
-														background-clip: text;
-														text-fill-color: transparent;
-														font-weight: 500;
-														font-size: 6px;
-														line-height: 136.5%;">See All</a>
-											</li>
-											<li class="proList">
-												<a href="#" class="navProLink">
-													<img src="./images/solution/pngwing 3.png" />
-												</a>
-												<p class="navProDesc" style="font-weight: 400;
-														font-size: 6px;
-														line-height: 136.5%;
-														color: #7D7D7D;">4 Mp Network Box Camera (version 4.1)</p>	
-												<a href="#" class="seeAllLink" style="background: linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%);
-														-webkit-background-clip: text;
-														-webkit-text-fill-color: transparent;
-														background-clip: text;
-														text-fill-color: transparent;
-														font-weight: 500;
-														font-size: 6px;
-														line-height: 136.5%;">See All</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-								<br>
-								<div class="submenu-footer text-center mt-2">
-									<a href="#" class="navSubLink">
-										<h6 class="footerlink">See More ></h6>
-									</a>
-								</div>
-							</div>
-						</li>
+                        <a href="products.php" class="<?php echo $page =='products' ? 'active2' : '' ;?>">products</a>
+                        <div class="menu-subs menu-mega menu-column-2 ">
+                            <div class="d-flex one">
+                                <div class="list-item sub-col-4 pe-4 subLeft flex-row-reverse ">
+                                    <ul class="is-hover">
+                                       <li>
+                                          <a href="products.php" class="navSubLink">
+                                             <h4 class="sub-title">16CH Digital Video Recorder</h4>
+                                          </a>
+                                       </li>
+                                       <li>
+                                          <a href="products.php" class="navSubLink">
+                                             <h4 class="sub-title">32CH Digital Video Recorder</h4>
+                                          </a>
+                                       </li>
+                                       <li>
+                                          <a href="products.php" class="navSubLink">
+                                             <h4 class="sub-title">4CH Digital Video Recorder</h4>
+                                          </a>
+                                       </li>
+                                       <li>
+                                          <a href="products.php" class="navSubLink">
+                                             <h4 class="sub-title">8CH Digital Video Recorder</h4>
+                                          </a>
+                                       </li>
+                                       <li>
+                                          <a href="products.php" class="navSubLink">
+                                             <h4 class="sub-title">Discontinued</h4>
+                                          </a>
+                                       </li>
+                                       <li>
+                                          <a href="products.php" class="navSubLink">
+                                             <h4 class="sub-title">Fish Eye Camera</h4>
+                                          </a>
+                                       </li>
+                                       <li>
+                                          <a href="products.php" class="navSubLink">
+                                             <h4 class="sub-title">Fixed Metal Bullet</h4>
+                                          </a>
+                                       </li>
+                                    </ul>
+                                </div>
+                                 <div class="list-item text-center sub-col-6 ps-4 info info-visible">
+                                    <ul>
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                    </ul>
+                                 </div>
+                                 <div class="list-item text-center sub-col-6 ps-4 info">
+                                    <ul>
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                    </ul>
+                                 </div>
+                                 <div class="list-item text-center sub-col-6 ps-4 info">
+                                    <ul>
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                    </ul>
+                                 </div>
+                                 <div class="list-item text-center sub-col-6 ps-4 info">
+                                    <ul>
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                    </ul>
+                                 </div>
+                                 <div class="list-item text-center sub-col-6 ps-4 info">
+                                    <ul>
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                    </ul>
+                                 </div>
+                                 <div class="list-item text-center sub-col-6 ps-4 info">
+                                    <ul>
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       <li class="proList">
+											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
+                                             <img src="./images/product/1681185730.png" style="height: 80px; width: 80px;" />
+                                          </a>
+                                          <br><a href="products.php" class="seeAllLink" style="">See All</a>
+                                       </li> 
+                                       
+                                    </ul>
+                                 </div>
+                            </div>
+                            <br>
+                            <div class="submenu-footer text-center mt-2">
+                                <a href="products.php" class="navSubLink">
+                                    <h6 class="footerlink">See More ></h6>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
                <li class="menu-item-has-children">
                   <a href="about.php" class="<?php echo $page =='about' ? 'active2' : '' ;?>">About Us</a>
                </li>
                <li class="menu-item-has-children">
-                  <a href="contact.php" class="<?php echo $page =='contact' ? 'active2' : '' ;?>">Contacts Us</a>
+                  <a href="contact.php" class="<?php echo $page =='contact' ? 'active2' : '' ;?>">Contact Us</a>
                </li>
                <li class="menu-item-has-children">
-                  <a href="#">Software Download</a>
+                  <a href="products.php">Software Download</a>
                   <div class="menu-subs menu-column-1 text-center">
                      <p class="menusub-title">Body Temperature Camera Software’s</p>
                      <?php $result=$qm->getRecord("software");

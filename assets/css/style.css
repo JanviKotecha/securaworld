@@ -3706,7 +3706,7 @@ th, td {
   padding: 10px;
 }
 .sub-col-4{
-  width: 30%;
+  width: 40%;
   text-align: center;
 }
 
@@ -3742,7 +3742,7 @@ th, td {
 
 .header .menu>ul>li .menu-column-2 {
   min-width: 12rem;
-  max-width: 45rem;
+  max-width: 60rem;
   background: #fff;
 }
 

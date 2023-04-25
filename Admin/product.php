@@ -48,22 +48,22 @@
                     </h2>
                     <div class="row">
                       <div class="resTable">
-                      <table class="datatable-1 table table-bordered table-striped	 display" width="100%">
-                        <thead>     
-                          <tr>
-                            <th>#</th>
-                            <th>Product Name</th>
-                            <th>Image</th>
-                            <th>Category</th>
-                            <th>Subcategory</th>
-                            <th>ModelNo</th>
-                            <th>DataSheet</th>
-                            <th>Description</th>
-                            <th colspan="2">Action</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        <?php 
+                        <table class="datatable-1 table table-bordered table-striped	 display" width="100%">
+                          <thead>     
+                            <tr>
+                              <th>#</th>
+                              <th>Product Name</th>
+                              <th>Image</th>
+                              <th>Category</th>
+                              <th>Subcategory</th>
+                              <th>ModelNo</th>
+                              <th>DataSheet</th>
+                              <th>Description</th>
+                              <th colspan="2">Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          <?php 
                           $result=mysqli_query($con,"select product.*,product_cate.categoryName,sub_cate.subcategory from product join product_cate on product_cate.id=product.category join sub_cate on sub_cate.id=product.subCategory");
                           if (mysqli_num_rows($result)>0) {
                             $cnt=1;
@@ -78,7 +78,7 @@
                                   <td><a href="<?php echo PRODUCT_URL.$row['datasheet'] ?>" ><?php echo $row['datasheet'] ?></a></td>
                                   <td><p><?php echo $row['lngdes'];?></p></td>
                                   <td><a class="btn btn-primary btn-sm " href="product_update.php?id=<?php echo $row['id'];?>">Update</a></td>
-                                  <td><a class="btn btn-danger btn-sm" href="product.php?id=<?php echo $row['id'];?>" onclick="return confirm('Are you sure');">Delete</a></td>
+                                  <td><a class="btn btn-danger btn-sm" href="product.php?id=<?php echo $row['id'];?>" onclick="return confirm('Are you sure to want to delete this item ?');">Delete</a></td>
                                 </tr>
                                 <?php $cnt=$cnt+1; } }
                                 else { ?>
@@ -88,8 +88,8 @@
                                   <?php } ?>
                           </tbody>
                         </table>
+                      </div>
                     </div>
-                  </div>
                 </div>
               </div>
             </div>

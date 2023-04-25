@@ -36,8 +36,8 @@
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h2 class="card-title">solution
-                      <a href="solution_add.php" class="btn btn-primary" style="float: right;">Add Solution</a>
+                    <h2 class="card-title">solutions
+                      <a href="solution_add.php" class="btn btn-primary" style="float: right;">Add Solutions</a>
                     </h2>
                     <div class="resTable">
                     <table class="datatable-1 table table-bordered table-striped	 display" width="100%">
@@ -66,7 +66,7 @@
                                 <td><h5><?php echo $row['des']; ?></h5></td>
                                 <td><h5><?php echo $row['ldesc']; ?></h5></td>
                                 <td><a class="btn btn-primary" href="solution_update.php?id=<?php echo $row['id'];?>">Update</a></td>
-                                <td><a class="btn btn-danger" href="solution.php?id=<?php echo $row['id'];?>" onclick="return confirm('Are you sure');">Delete</a></td>                             
+                                <td><a class="btn btn-danger" href="solution.php?id=<?php echo $row['id'];?>" onclick="return confirm('Are you sure to want to delete this item ?');">Delete</a></td>                             
                               </tr>
                             <?php   $cnt=$cnt+1; } }
                             else { ?>

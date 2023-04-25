@@ -82,25 +82,31 @@
                   </div>
                    <div class="sidebar-mob">
                       <div class="sidebar-item categories">
-                      <select name="category" class="form-control"  required>
-                      <option value="">Select Category</option>
-                      <?php $result = $qm->getRecord("product_cate");
-                          if (mysqli_num_rows($result) > 0) {
-                              while ($row=mysqli_fetch_array($result)) { 
-                                $catid=$row['id'];
-                                ?>  
-                            <option value="<?php echo $row['id'];?>"><?php echo $row['categoryName'];?></option>
-                            <?php $subcate = $qm->customQuery("select * from sub_cate WHERE categoryid=$catid"); 
-                                if (mysqli_num_rows($result) > 0) {
-                                while ($rowdata=mysqli_fetch_array($subcate)) {  
-                                if($rowdata['subcategory'] != '--') { ?>
-                                <option value="">
-                                     --<?php echo $rowdata['subcategory'];  ?></a>
-                                </option>
-                               
-                              <?php } }} ?>
-                          <?php } } ?>
-                                </select>
+                      <select name="category" class="form-control" onchange="location = this.value;">
+                        <option value="">Select Category</option>
+                        <?php $result = $qm->getRecord("product_cate");
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row=mysqli_fetch_array($result)) { 
+                                  $catid=$row['id'];
+                                  ?>  
+                              <option value="product_category.php?cid=<?php echo $catid ?>"><?php echo $row['categoryName'];?></option>
+                              <script type="text/javascript">
+                                  function handleSelect(elm)
+                                  {
+                                    window.location = elm.value+".php?cid=<?php echo $catid ?>";
+                                  }
+                                </script>
+                              <?php $subcate = $qm->customQuery("select * from sub_cate WHERE categoryid=$catid"); 
+                                  if (mysqli_num_rows($result) > 0) {
+                                  while ($rowdata=mysqli_fetch_array($subcate)) {  
+                                  if($rowdata['subcategory'] != '--') { ?>
+                                  <option value="product_category.php?catid=<?php echo $rowdata['categoryid']; ?>&subcateid=<?php echo $rowdata['id']; ?>">
+                                      --<?php echo $rowdata['subcategory'];  ?>
+                                  </option>
+                                 
+                                <?php } }} ?>
+                            <?php } } ?>
+                      </select>
                         </div>
                   </div>
               </div>

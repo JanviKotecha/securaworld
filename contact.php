@@ -35,20 +35,22 @@
                   <div class="col-md-5 d-flex align-items-stretch cbg">
                     <div class="info-wrap  w-100 p-lg-5 p-4">
                       <h3 class="mb-4 mt-md-4" style="color:#fff">Information</h3>
-                      <p style="color:#fff">Got a question on SECURA? Have some suggestion? Contact us.We respect your privacy and will not share this information with any other agency.<div class="info">
+                      <p style="color:#fff">Got a question on SECURA? Have some suggestion? Contact us.We respect your privacy and will not share this information with any other agency.</p>
+                      <?php $result=$qm->getRecord("profile","*","id=1");
+                      if (mysqli_num_rows($result)>0) {
+                        $row=mysqli_fetch_array($result); ?>
+                      <div class="info2" style="color:#fff">
                         <div class="address">
-                          <i class="bi bi-geo-alt"></i>
-                          <p>18 Pencai Terrace, Treorchy, CF42 6HL</p>
+                          <p><b>Address : </b><?php echo $row['addr'] ?> </p>
                         </div>
                         <div class="email">
-                          <i class="bi bi-envelope"></i>
-                          <p>michelle.rivera@example.com</p>
+                          <p><b>Email : </b><?php echo $row['eml'] ?></p>
                         </div>
                         <div class="phone">
-                          <i class="bi bi-telephone"></i>
-                          <p>(316) 555-0116</p>
+                         <p><b> Mobile : </b><?php echo $row['mob'] ?></p>
                         </div>
                       </div>
+                      <?php } ?>
                     </div>
                   </div>
                   <div class="col-md-7 d-flex align-items-stretch">
@@ -56,20 +58,20 @@
                       <form action="contact-data.php" method="post" role="form"  >
                         <div class="row">
                           <div class="col-md-12 form-group mt-3">
-                            <label for="">Name</label>
+                            <label for="">Name<sup>*</sup></label>
                             <input type="text" name="nm" class="form-control fbg" id="nm"  required>
                           </div>
                           <div class="col-md-12 form-group mt-3">
-                            <label for="">Email</label>
+                            <label for="">Email<sup>*</sup></label>
                             <input type="email" class="form-control fbg" name="eml" id="eml"required>
                           </div>
                           <div class="col-md-12 form-group mt-3">
                             <label for="">Phone</label>
-                            <input type="tel" name="mob" class="form-control fbg" id="mob" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required>
+                            <input type="tel" name="mob" class="form-control fbg" id="mob" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" >
                           </div>
                           <div class="col-md-12 form-group mt-3">
                             <label for="">Message</label>
-                            <textarea class="form-control fbg" name="msg" rows="6" required></textarea>
+                            <textarea class="form-control fbg" name="msg" rows="6"></textarea>
                           </div>
                           <div class="text-center">
                             <br/><input type="submit" name="submit" value="Submit" style="background: linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%);border-radius: 10px;border: 0;padding: 10px 24px;color: #fff;transition: 0.4s;border-radius: 4px;">
