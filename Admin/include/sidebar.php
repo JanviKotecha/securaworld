@@ -13,7 +13,7 @@
     </li>
     <li class="nav-item  <?php echo $page_title =='solution' ? 'activerow' : '' ;?>">
       <a class="nav-link" href="solution.php" >      
-        <span class="menu-title">solution</span>     
+        <span class="menu-title">solutions</span>     
       </a>    
     </li> 
     <li class="nav-item  <?php echo $page_title =='product_cate' ? 'activerow' : '' ;?>">
