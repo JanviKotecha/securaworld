@@ -8,7 +8,7 @@
   <body>
     <!-- ======= Header ======= -->
     <header id="header" class="header">
-      <?php include("include/headER.php"); ?>
+      <?php include("include/header.php"); ?>
     </header>
     <main id="main">
       <section id="hero">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 21, 2023 at 04:39 PM
+-- Generation Time: Apr 26, 2023 at 08:29 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -312,7 +312,7 @@ CREATE TABLE `product_cate` (
 --
 
 INSERT INTO `product_cate` (`id`, `categoryName`, `img`, `creationDate`, `updationDate`) VALUES
-(1, '16CH METAL BOX DIGITAL VIDEO RECORDER (2MP) ', '1681542257.png', '0000-00-00', '2023-04-15'),
+(1, '16CH METAL BOX DIGITAL VIDEO RECORDER (2MP)', '1682489964.jpg', '2023-04-26', '0000-00-00'),
 (2, '32CH Digital Video Recorder', '1681188885.png', '0000-00-00', '0000-00-00'),
 (3, '4CH Digital Video Recorder', '1681539000.png', '0000-00-00', '2023-04-15'),
 (4, '8CH Digital Video Recorder', '1681657196.png', '0000-00-00', '2023-04-16'),
@@ -456,9 +456,7 @@ CREATE TABLE `sub_cate` (
 --
 
 INSERT INTO `sub_cate` (`id`, `categoryid`, `img`, `subcategory`, `creationDate`, `updationDate`) VALUES
-(1, 4, '', '--', '2017-02-04 04:13:00', '0000-00-00 00:00:00'),
 (4, 5, '1681464285.jpg', 'IP Camera', '2023-04-14 09:24:45', NULL),
-(8, 1, '1681464329.jpg', '1 MP Fixed Metal Bullet', '2023-04-14 09:25:29', '2023-04-21 10:28:46'),
 (9, 7, '1681464359.jpg', '2 MP Fixed Metal Bullet', '2023-04-14 09:25:59', NULL),
 (10, 7, '1681464382.jpg', '4 MP Fixed Metal Bullet', '2023-04-14 09:26:22', NULL),
 (11, 7, '1681464402.jpg', '5 MP Fixed Metal Bullet', '2023-04-14 09:26:42', NULL),
@@ -557,7 +555,8 @@ ALTER TABLE `solution`
 -- Indexes for table `sub_cate`
 --
 ALTER TABLE `sub_cate`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `subcatid` (`categoryid`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -597,7 +596,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `product_cate`
 --
 ALTER TABLE `product_cate`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `profile`
@@ -628,6 +627,16 @@ ALTER TABLE `solution`
 --
 ALTER TABLE `sub_cate`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `sub_cate`
+--
+ALTER TABLE `sub_cate`
+  ADD CONSTRAINT `subcatid` FOREIGN KEY (`categoryid`) REFERENCES `product_cate` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
