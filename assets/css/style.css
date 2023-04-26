@@ -3728,7 +3728,7 @@ th, td {
 }
 
 .header .menu>ul>li .menu-subs.menu-mega>.one>.sub-col-6>ul>li>.navProLink{
-  padding: 35px 15px;
+  padding: 10px;
   background: #F9F9F9;
   border: 1px solid;
   border-image: linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%) 1;
@@ -3765,4 +3765,24 @@ th, td {
   padding-top: 5px !important;
   padding-bottom: 5px !important; 
   width: 100% !important;
+}
+
+
+/* Media Query for Header Menu */
+
+@media only screen and (max-width: 993px) {
+  .header .menu > ul > li.menu-item-has-children:hover .menu-subs {
+    margin-top: 0.5rem;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .header .menu > ul > li.menu-item-has-children:hover .menu-subs .one .subLeft{
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .header .menu > ul > li.menu-item-has-children:hover .menu-subs .one .subright{
+    display: none !important;
+  } 
 }
