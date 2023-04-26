@@ -1,26 +1,59 @@
 <style>
-   .column li {
-   &:not(:first-child) a {
-   border-top: 1px solid #262626;
-   }
-   &:not(:last-child) a {
-   border-bottom: 1px solid #4E4E4E;
-   }
-   }
-   .info {
-   display: none;
-   }
-   .info-visible {
-   display: block;
-   }
-   a:hover{
+.column li {
+    &:not(:first-child) a {
+        border-top: 1px solid #262626;
+    }
+
+    &:not(:last-child) a {
+        border-bottom: 1px solid #4E4E4E;
+    }
+}
+
+.info {
+    display: none;
+}
+
+.info-visible {
+    display: block;
+}
+.a:hover{
       color:#E71D25 !important
    }
-   .sub-titlee{
-      color:black !important;
-      font-style: normal;
-      font-weight: 600 !important;
-      font-size: 13px !important;
+
+@media only screen and (max-width: 993px) {
+    .header .menu>ul>li.menu-item-has-children:hover .menu-subs {
+        margin-top: 0.5rem;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .header .menu>ul>li.menu-item-has-children:hover .menu-subs .one .subLeft {
+        display: block !important;
+        width: 100% !important;
+        border: none;
+    }
+
+    .header .menu>ul>li.menu-item-has-children:hover .menu-subs .one .subright {
+        display: none !important;
+    }
+
+    .header .menu>ul>li .menu-subs.menu-mega>.one>.list-item>ul>li {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+}
+
+@media (max-width: 280px) {
+    .header .menu>ul>li.menu-item-has-children .menu-subs {
+        padding-left: 0.3rem;
+    }
+
+    .header .menu>ul {
+        padding-left: 0.3rem;
+    }
+
+    .header .menu>ul>li.menu-item-has-children:hover .menu-subs .one .subLeft>ul {
+        padding-left:5px !important;
+    }
 }
 </style>
 <div class="container">
@@ -43,53 +76,65 @@
                   <a href="index.php" class="<?php echo $page == 'secura' ? 'active2' : ''; ?>">Home</a>
                </li>
                <?php $result=$qm->customQuery("SELECT * FROM solution  LIMIT 5"); ?>
-               <li class="menu-item-has-children">
-                  <a href="solutions.php"  class="<?php echo $page =='solutions' ? 'active2' : '' ;?>">Solutions</a>
-                  <div class="menu-subs menu-mega menu-column-2" style="width:45% !important;">
-                     <div class="d-flex one">
-                        <div class="list-item sub-col-3 pe-4 subLeft" style="text-align:left">
-                           <ul class="is-hover">
-                              <?php if (mysqli_num_rows($result) > 0) {
+                    <li class="menu-item-has-children">
+                        <!-- solutions.php -->
+                        <a href="#" class="<?php echo $page =='solutions' ? 'active2' : '' ;?>">Solutions</a>
+                        <div class="menu-subs menu-mega menu-column-2">
+                            <div class="d-flex one">
+                                <div class="list-item sub-col-3 pe-4 subLeft" style="text-align:left">
+                                    <ul class="is-hover">
+                                        <?php if (mysqli_num_rows($result) > 0) {
                                  while ($row=mysqli_fetch_array($result)) { ?>
-                              <li>
-                                 <a href="solution_detail.php?id=<?php  echo $row['id']; ?>" class="navSubLink d-flex">
-                                    <img height=30  width=30 class="me-3" src="<?php echo $row["img"]=='' ? SOLUTION_URL.'noimg.png' : (file_exists(UPL_SOLUTION_URL.$row["img"]) ? SOLUTION_URL.$row["img"] :  SOLUTION_URL.'noimg.png'); ?>">
-                                    <h4 class="sub-title"><?php echo $row['tit']; ?></h4>
-                                 </a>
-                              </li>
-                              <?php } } ?>
-                           </ul>
-                        </div>
-                        <div class="list-item sub-col-3 ps-4">
-                           <div class="card" style="width: 18rem;">
-                              <div class="card-body info info-visible">
-							         <img height=100 class="card-img-top" src="<?php echo SOLUTION_URL ?>demo.jpg">
-                                <h5 class="card-title1">Speed Violation Detection</h5>
-								         <p class="card-subtext">Secura Analytics software detects speed of vehicles crossing the camera view and raises speed violation alarm based on speed limit set</h5>
-                                 </p>
-                              </div>
-                              <?php
+                                        <li>
+                                            <a href="solution_detail.php?id=<?php  echo $row['id']; ?>"
+                                                class="navSubLink d-flex">
+                                                <img height=30 width=30 class="me-3"
+                                                    src="<?php echo $row["img"]=='' ? SOLUTION_URL.'noimg.png' : (file_exists(UPL_SOLUTION_URL.$row["img"]) ? SOLUTION_URL.$row["img"] :  SOLUTION_URL.'noimg.png'); ?>">
+                                                <h4 class="sub-title"><?php echo $row['tit']; ?></h4>
+                                            </a>
+                                        </li>
+                                        <?php 
+                                 } } ?>
+                                    </ul>
+                                </div>
+                                <div class="list-item sub-col-3 ps-4 subright">
+                                    <div class="card" style="width: 18rem;">
+                                        <div class="card-body info info-visible">
+                                            <img height=100 class="card-img-top"
+                                                src="<?php echo SOLUTION_URL ?>demo.jpg">
+                                            <h5 class="card-title1">Speed Violation Detection</h5>
+                                            <p class="card-subtext">Secura Analytics software detects speed of vehicles
+                                                crossing the camera view and raises speed violation alarm based on speed
+                                                limit set</h5>
+                                            </p>
+                                        </div>
+                                        <?php
                                  $result2=$qm->customQuery("SELECT * FROM solution  LIMIT 5");
                                  if (mysqli_num_rows($result2) > 0) {
                                  while ($rowdata=mysqli_fetch_array($result2)) { ?>
-                              <div class="card-body info">
-                                 <img src="<?php echo $rowdata["img"]=='' ? SOLUTION_URL.'noimg.png' : (file_exists(UPL_SOLUTION_URL.$rowdata["img"]) ? SOLUTION_URL.$rowdata["img"] :  SOLUTION_URL.'noimg.png'); ?>" height=100 class="card-img-top" alt="...">
-                                 <h5 class="card-title1"><?php echo $rowdata['tit']; ?></h5>
-                                 <p class="card-subtext"><?php echo $rowdata['des']; ?></p>
-                              </div>
-                              <?php  } } ?>
-                           </div>
+                                        <div class="card-body info">
+                                            <img src="<?php echo $rowdata["img"]=='' ? SOLUTION_URL.'noimg.png' : (file_exists(UPL_SOLUTION_URL.$rowdata["img"]) ? SOLUTION_URL.$rowdata["img"] :  SOLUTION_URL.'noimg.png'); ?>"
+                                                height=100 class="card-img-top" alt="...">
+                                            <h5 class="card-title1"><?php echo $rowdata['tit']; ?></h5>
+                                            <p class="card-subtext"><?php echo $rowdata['des']; ?></p>
+                                        </div>
+                                        <?php  } } ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="submenu-footer text-center mt-2">
+                                <a href="solutions.php" class="navSubLink">
+                                    <h6 class="footerlink">See More ></h6>
+                                </a>
+                            </div>
                         </div>
-                     </div>
-                     <div class="submenu-footer text-center mt-2">
-                        <a href="solutions.php" class="navSubLink">
-                           <h6 class="footerlink">See More ></h6>
-                        </a>
-                     </div>
-                  </div>
-               </li>
-               <li class="menu-item-has-children">
-                        <a href="products.php" class="<?php echo $page =='products' ? 'active2' : '' ;?>">products</a>
+                    </li>
+                    
+                    <!-- Porducts -->
+                    <!-- ****** -->
+                    
+                    <li class="menu-item-has-children">
+                        <a href="#" class="<?php echo $page =='products' ? 'active2' : '' ;?>">products</a>
                         <div class="menu-subs menu-mega menu-column-2 ">
                             <div class="d-flex one">
                                 <div class="list-item sub-col-4 pe-4 subLeft flex-row-reverse ">
@@ -131,7 +176,7 @@
                                        </li>
                                     </ul>
                                 </div>
-                                 <div class="list-item text-center sub-col-6 ps-4 info info-visible">
+                                 <div class="list-item text-center sub-col-6 ps-4 info info-visible subright">
                                     <ul>
                                        <li class="proList">
 											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
@@ -165,7 +210,7 @@
                                        </li> 
                                     </ul>
                                  </div>
-                                 <div class="list-item text-center sub-col-6 ps-4 info">
+                                 <div class="list-item text-center sub-col-6 ps-4 info subright">
                                     <ul>
                                        <li class="proList">
 											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
@@ -199,7 +244,7 @@
                                        </li> 
                                     </ul>
                                  </div>
-                                 <div class="list-item text-center sub-col-6 ps-4 info">
+                                 <div class="list-item text-center sub-col-6 ps-4 info subright">
                                     <ul>
                                        <li class="proList">
 											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
@@ -233,7 +278,7 @@
                                        </li> 
                                     </ul>
                                  </div>
-                                 <div class="list-item text-center sub-col-6 ps-4 info">
+                                 <div class="list-item text-center sub-col-6 ps-4 info subright">
                                     <ul>
                                        <li class="proList">
 											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
@@ -267,7 +312,7 @@
                                        </li> 
                                     </ul>
                                  </div>
-                                 <div class="list-item text-center sub-col-6 ps-4 info">
+                                 <div class="list-item text-center sub-col-6 ps-4 info subright">
                                     <ul>
                                        <li class="proList">
 											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
@@ -301,7 +346,7 @@
                                        </li> 
                                     </ul>
                                  </div>
-                                 <div class="list-item text-center sub-col-6 ps-4 info">
+                                 <div class="list-item text-center sub-col-6 ps-4 info subright">
                                     <ul>
                                        <li class="proList">
 											         <a href="products.php" class="navProLink" style="padding:20px !important; margin:9px !important;">
@@ -345,17 +390,19 @@
                             </div>
                         </div>
                     </li>
-               <li class="menu-item-has-children">
-                  <a href="about.php" class="<?php echo $page =='about' ? 'active2' : '' ;?>">About Us</a>
-               </li>
-               <li class="menu-item-has-children">
-                  <a href="contact.php" class="<?php echo $page =='contact' ? 'active2' : '' ;?>">Contact Us</a>
-               </li>
-               <li class="menu-item-has-children">
-                  <a href="products.php">Software Download</a>
-                  <div class="menu-subs menu-column-1 text-center">
-                     <p class="menusub-title">Body Temperature Camera Software’s</p>
-                     <?php $result=$qm->getRecord("software");
+                   
+
+                    <li class="menu-item-has-children">
+                        <a href="about.php" class="<?php echo $page =='about' ? 'active2' : '' ;?>">About Us</a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="contact.php" class="<?php echo $page =='contact' ? 'active2' : '' ;?>">Contacts Us</a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Software Download</a>
+                        <div class="menu-subs menu-column-1 text-center">
+                            <p class="menusub-title">Body Temperature Camera Software’s</p>
+                            <?php $result=$qm->getRecord("software");
                         if (mysqli_num_rows($result)>0) {
                         	$row=mysqli_fetch_array($result); ?>
                      <a href="<?php echo SOFTWARE_URL.$row['firmware']; ?>" class="menusub-btn mt-2" downloade>
