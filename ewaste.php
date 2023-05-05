@@ -31,7 +31,7 @@
                         $result = $qm->getRecord("product_cate");
                         if (mysqli_num_rows($result) > 0) {
                             while ($row=mysqli_fetch_array($result)) { ?>
-                              <a href="product_category.php?cid=<?php echo $row['id']; ?>" class="category"><?php echo $row['categoryName']?></a><br><br><br>    
+                              <a href="product_category.php?cid=<?php echo base64_encode($row['id']); ?>" class="category"><?php echo $row['categoryName']?></a><br><br><br>    
                         <?php } } ?>
                     </div>
                 </div>
