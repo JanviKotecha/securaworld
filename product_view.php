@@ -1,32 +1,39 @@
-<?php if(isset($_GET['pid']))  {  ?>
+<?php if(isset($_GET['pid']))  { 
+    if($_GET['pid'] != '') {
+      $a=base64_decode($_GET['pid']);
+      if(is_numeric($a)) {  ?>
 <!DOCTYPE html>
 <?php include "include/config.php"; $page='products'; ?>
 <html lang="en">
    <head>
       <title>Product</title>
-      <?php include("include/head.php");
-         ?>
+      <?php include("include/head.php"); ?>
       <style>
-         a:hover {
+         .a:hover {
          color: #fff !important;
          }
       
-      .sidebar-mob{
-         display: none;
-      }
-      @media (max-width: 1000px){
          .sidebar-mob{
-         display: block;
+            display: none;
+         }
+         @media (max-width: 1000px){
+            .sidebar-mob{
+            display: block;
+            padding-right: 30px;
+            padding-left: 12px
+         }
+         .sidebar{
+            display: none;
+         }
+         .subLeft3{
+         padding:30px !important;
+         border-left: 0px solid transparent;
       }
-      .sidebar{
-         display: none;
       }
-      .subLeft3{
-      padding:10px !important;
-      border-left: 2.5px solid transparent;
-    }
-   }
-      </style>
+      .a:hover{
+         color:#F37E60 !important
+      }
+   </style>
    </head>
    <body>
       <!-- ======= Header ======= -->
@@ -38,7 +45,7 @@
             <div class="carousel-item active" style="background-image: url(images/bg/solution.png)">
                <div class="carousel-container">
                   <div class="container">
-                     <h2 class="animate__fadeInDown">- Product<span style="background: linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;background-clip: text;">s</span></h2>
+                     <h2 class="animate__fadeInDown">Product<span style="background: linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;background-clip: text;">s</span></h2>
                   </div>
                </div>
             </div>
@@ -61,14 +68,14 @@
                                 $catid=$row['id'];
                                 ?>  
                                 
-                                <a href="product_category.php?cid=<?php echo $catid ?>" class="color"> <?php echo $row['categoryName']?></a><br><br>
+                                <a href="product_category.php?cid=<?php echo  base64_encode($catid) ?>" class="color a"> <?php echo $row['categoryName']?></a><br><br>
                                 <?php $subcate = $qm->customQuery("select * from sub_cate WHERE categoryid=$catid"); 
                                 if (mysqli_num_rows($result) > 0) {
                                 while ($rowdata=mysqli_fetch_array($subcate)) {  
                                 if($rowdata['subcategory'] != '--') { ?>
                                 <ul>
                                     <li>
-                                      <a href="product_category.php?catid=<?php echo $rowdata['categoryid']; ?>&subcateid=<?php echo $rowdata['id']; ?>"  name="subcate" style="font-weight: 500;" class="color"><?php echo $rowdata['subcategory'];  ?></a>
+                                      <a href="product_category.php?catid=<?php echo  base64_encode($rowdata['categoryid']); ?>&subcateid=<?php echo  base64_encode($rowdata['id']); ?>"  name="subcate" style="font-weight: 500;" class="color a"><?php echo $rowdata['subcategory'];  ?></a>
                                     </li>
                                 </ul>
                               <?php } }} ?>
@@ -101,17 +108,21 @@
               </div>
                   <div class="col-lg-9 subLeft3" style="text-align:left !important">
                      <?php 
-                        $pid=$_GET["pid"];
-                        $result=mysqli_query($con,"select product.*,product_cate.categoryName,sub_cate.subcategory from product join product_cate on product_cate.id=product.category join sub_cate on sub_cate.id=product.subCategory Where product.id=$pid");
-                        
+                        $pid= base64_decode($_GET["pid"]);
+                        $result=mysqli_query($con,"select product.*,product_cate.categoryName from product join product_cate on product_cate.id=product.category Where product.id=$pid");
                         if (mysqli_num_rows($result) > 0) { ?>
                      <div class="row">
                         <?php $row=mysqli_fetch_array($result) ?>
-                        <h4><?php echo $row['categoryName']; ?></h4>
-                        <div class="col-lg-12 mt-8" style="margin-bottom:120px;margin-top:0px !importnat;text-align:center" >
+                        <h4 style="text-align :left!important"><?php echo $row['categoryName']; ?></h4>
+                        <div class="col-lg-12 mt-8" style="margin-bottom:120px;margin-top:0px !importnat;" >
                            <div class="" style="margin-bottom:20px">
-                              <div class="member-info" >
-                                 <img stye="align-item:left !important" src="<?php echo $row["img"]=='' ? PRODUCT_URL.'noimg.png' : (file_exists(UPL_PRODUCT_URL.$row["img"]) ? PRODUCT_URL.$row["img"] :  PRODUCT_URL.'noimg.png'); ?>" class="img-fluid" alt="" >
+                              <div class="member-info" style="text-align:center !important">
+                                 <img style="width:40%;cursor:pointer" onclick="onClick(this)"  src="<?php echo $row["img"]=='' ? PRODUCT_URL.'noimg.png' : (file_exists(UPL_PRODUCT_URL.$row["img"]) ? PRODUCT_URL.$row["img"] :  PRODUCT_URL.'noimg.png'); ?>"  alt="" >
+                              </div>
+                           </div>
+                           <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+                              <div class="w3-modal-content w3-animate-zoom">
+                                 <img id="img01" style="width:60%">
                               </div>
                            </div>
                            <h5 class="" style="text-align:left !important"><?php echo $row['tit']; ?></h5>
@@ -120,7 +131,9 @@
                            <br>
                            <p style="text-align:left !important"><?php echo $row['lngdes']; ?></p>
                            <br>
-                           <a class="viewBtn" style="text-align:left;padding:20px" href="<?php echo PRODUCT_URL.$row['datasheet']; ?>" target="balnk">Downloade DataSheet</a>                                
+                           <div style="width:100%;text-align:right">
+                              <a class="viewBtn" style="text-align:left;padding:20px" href="<?php echo PRODUCT_URL.$row['datasheet']; ?>" target="balnk">Downloade DataSheet</a>                                
+                           </div>
                         </div> 
                       <?php  } ?>
                       <h3 style="margin-bottom:40px">Similar Products </h3>
@@ -134,7 +147,7 @@
                               </div>
                            </div>
                            <p class="producp"><?php echo $row['tit']; ?></p>
-                           <a href="products.php" name="submit" style="color:#E71D25;background:#fff;border:none;">See All</a>
+                           <a href="products.php" name="submit"  style="color:#E71D25;background:#fff;border:none;">See All</a>
                         </div>
                         <?php  } } ?>
                      </div>
@@ -151,7 +164,11 @@
    </body>
 </html>
 <?php 
-} 
+} else{
+   header("location:products.php");
+ }}else{
+   header("location:products.php");
+ }}
    else{
      header("location:products.php");
    } ?>

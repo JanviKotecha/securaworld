@@ -15,7 +15,7 @@
       <div class="carousel-item active" style="background-image: url(images/bg/solution.png)">
         <div class="carousel-container">
           <div class="container">
-            <h2 class="animate__fadeInDown">- Solutions </h2>
+            <h2 class="animate__fadeInDown">Solutions </h2>
           </div>
         </div>
       </div>
@@ -33,10 +33,22 @@
       <?php
         $limit = 6;  
         if(isset($_GET["page"])) {
+          if($_GET['page'] != '') {
+            if(is_numeric($_GET['page'])) {
           $page = $_GET["page"]; 
+        } else { ?>
+          <script>
+          window.location="solutions";
+        </script>
+        <?php } }
+        else { ?>
+          <script>
+          window.location="solutions";
+        </script>
+        <?php } 
         }else{ 
           $page=1;
-        }  
+        } 
         $start_from = ($page-1) * $limit;
         $previous_page = $page - 1;
         $next_page = $page + 1;
@@ -53,13 +65,13 @@
                     <img src="<?php echo $row["img"]=='' ? SOLUTION_URL.'noimg.png' : (file_exists(UPL_SOLUTION_URL.$row["img"]) ? SOLUTION_URL.$row["img"] :  SOLUTION_URL.'noimg.png'); ?>">
                   </div>
                   <h2 class="entry-title">
-                    <a href="solution_detail.php?id=<?php echo $row['id'];?>" style="font-size:20px!important"><?php echo $row['tit']; ?></a>
+                    <a href="solution_detail?id=<?php echo base64_encode($row['id']);?>" style="font-size:20px!important"><?php echo $row['tit']; ?></a>
                   </h2>
                   <div class="entry-body">
                     <p style="overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;"> <?php echo $row['des']; ?><br></p>
                   </div>
                   <div class="card-footerr">
-                    <b><a href="solution_detail.php?id=<?php echo $row['id']; ?>" style="">Read More</a></b>
+                    <b><a href="solution_detail?id=<?php echo base64_encode($row['id']); ?>" style="">Read More</a></b>
                   </div>
                 </article>
             </div>
@@ -78,7 +90,7 @@
                   <?php
                     for ($i=1; $i<=$total_pages; $i++) {  ?>
                       <li  style="list-style: none !important;list-style-type: none !important;">
-                        <a class="<?php if($page == $i) {echo 'act'; } else { echo 'disable';} ?>"   href="solutions.php?page=<?= $i; ?>"> <?= $i; ?> </a>
+                        <a class="<?php if($page == $i) {echo 'act'; } else { echo 'disable';} ?>"   href="solutions?page=<?= $i; ?>"> <?= $i; ?> </a>
                       </li>
                   <?php }; ?>
                   <li style="list-style: none !important;list-style-type: none !important;"  class="disable">

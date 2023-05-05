@@ -14,7 +14,7 @@
       <div class="carousel-item active" style="background-image: url(images/bg/about.png)">
         <div class="carousel-container">
           <div class="container">
-            <h2 class="animate__fadeInDown">- About  <span style="background: linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;background-clip: text;">Us</span></h2>
+            <h2 class="animate__fadeInDown"> About  <span style="background: linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;background-clip: text;">Us</span></h2>
           </div>
         </div>
       </div>

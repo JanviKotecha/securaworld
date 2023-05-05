@@ -14,7 +14,7 @@
       <div class="carousel-item active" style="background-image: url(images/bg/ewaste.png)">
         <div class="carousel-container">
           <div class="container">
-            <h2 class="animate__fadeInDown">— E-Wast<span style="background: linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;background-clip: text;">e</span></h2>
+            <h2 class="animate__fadeInDown">E-Wast<span style="background: linear-gradient(70.76deg, #E71D25 4.27%, #F37E60 74.51%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;background-clip: text;">e</span></h2>
           </div>
         </div>
       </div>
@@ -23,8 +23,9 @@
         <div class="container" data-aos="fade-up">
           <div class="row">
             <div class="col-lg-3">
-            <h4>Product Categories </h4><br>
+            
                 <div class="sidebar">
+                <h4>Product Categories </h4><br>
                     <div class="sidebar-item categories">
                         <?php 
                         $result = $qm->getRecord("product_cate");

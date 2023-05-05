@@ -2,11 +2,13 @@
  <?php include "include/config.php";  $page='secura'; ?>
 <html lang="en">
   <head>
-    <title>Home</title>
+    <title>SecuraWorld</title>
     <style>
-      a:hover{
-        color:white !important;
+      @media (max-width: 1000px){
+        .product-category {
+        display: none;
       }
+    }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <?php include("include/head.php");?>
@@ -100,7 +102,7 @@
             <div class="col-lg-6 right" >
               <h2 >A pioneer in Video Surveillance and Analytics</h2>
               <h5>Secura is a pioneer in the Indian Electronic Surveillance Industry with widest CCTV deployment pan India. Our biggest goal is to bring you peace of mind, through state-of-the-art surveillance solutions that are consistently strengthened through innovation.The quality of our offerings reflects in our diverse clientele, ranging from high-profile government and public sector departments to numerous private sector clients and homeowners. Secura products are made in India, using indigenous R&D and manufacturing processes, ensuring 100% data security.</h5>
-              <a class="btn" href="solutions.php">Read More</a>
+              <a class="btn" href="about.php">Read More</a>
             </div>
           </div>
         </div>
@@ -112,7 +114,7 @@
             <div class="col-lg-6">
               <h2>A pioneer in Video Surveillance and Analytics</h2>
               <h5>Secura is a pioneer in the Indian Electronic Surveillance Industry with widest CCTV deployment pan India. Our biggest goal is to bring you peace of mind, through state-of-the-art surveillance solutions that are consistently strengthened through innovation. The quality of our offerings reflects in our diverse clientele, ranging from high-profile government and public sector departments to numerous private sector clients and homeowners. Secura products are made in India, using indigenous R&D and manufacturing processes, ensuring 100% data security.</h5>
-              <a class="btn">Read More</a>
+              <a class="btn" href="about.php">Read More</a>
             </div>
             <div class="col-lg-6">
               <center><img src="images/bg/home8.png" alt="" style="max-width:75%"></center>
@@ -168,7 +170,12 @@
             <div class="col-lg-4 entries" style="margin-bottom:20px !important">
                 <article class="entry h-100">
                   <div class="entry-img">
-                    <img src="<?php echo $row["img"]=='' ? SOLUTION_URL.'noimg.png' : (file_exists(UPL_SOLUTION_URL.$row["img"]) ? SOLUTION_URL.$row["img"] :  SOLUTION_URL.'noimg.png'); ?>" style="padding:25px;width:100%;height:250px !important;">
+                    <img  src="<?php echo $row["img"]=='' ? SOLUTION_URL.'noimg.png' : (file_exists(UPL_SOLUTION_URL.$row["img"]) ? SOLUTION_URL.$row["img"] :  SOLUTION_URL.'noimg.png'); ?>" style="padding:25px;width:100%;height:250px !important;">
+                  </div>
+                  <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+                    <div class="w3-modal-content w3-animate-zoom">
+                      <img id="img01" style="width:60%">
+                    </div>
                   </div>
                   <h2 class="entry-title">
                     <a href="solution_detail.php?id=<?php echo $row['id'];?>" style="font-size:20px!important"><?php echo $row['tit']; ?></a>
@@ -190,7 +197,7 @@
                 $total_pages = ceil($total_records / $limit); //count page ?>
         </div>
       </section>
-      <section id="about" class="about mb-5">
+      <section id="product-category" class="about product-category mb-5">
         <div class="container">
           <div class="row content">
             <div class="col-lg-12">
@@ -207,7 +214,7 @@
             if (mysqli_num_rows($result)>0) {
               while ($row=mysqli_fetch_array($result)) { 
               $gal[]=$row; ?>
-            <button class="" onclick="openTab(event, '<?php echo $row['tit'];?>', 'arrow<?php echo $row['id']; ?>')"  <?php  if($row['id'] == '1') { ?>id='defaultOpen' <?php } ?> >
+            <button  onclick="openTab(event, '<?php echo $row['tit'];?>', 'arrow<?php echo $row['id']; ?>')"  <?php  if($row['id'] == '1') { ?>id='defaultOpen' <?php } ?> >
               <img src="<?php echo $row["img"]=='' ? PRODUCT_URL.'noimg.png' : (file_exists(UPL_PRODUCT_URL.$row["img"]) ? PRODUCT_URL.$row["img"] :  PRODUCT_URL.'noimg.png'); ?>" alt="" class="leftImg">
               <span id="arrow<?php echo $row['id']; ?>" ></span>
             </button>
@@ -216,14 +223,14 @@
           <?php foreach ($gal as $g) { ?>
           <div id="<?php echo $g['tit']; ?>" class="tabcontent mt-1">
             <div style="display :flex; justify-content: center;">
-              <img src="<?php echo $g["img"]=='' ? PRODUCT_URL.'noimg.png' : (file_exists(UPL_PRODUCT_URL.$g["img"]) ? PRODUCT_URL.$g["img"] :  PRODUCT_URL.'noimg.png'); ?>" alt="" class="pion2 mt-2" style="display:flex; justify-content: center;">
+              <img  onclick="onClick(this)" src="<?php echo $g["img"]=='' ? PRODUCT_URL.'noimg.png' : (file_exists(UPL_PRODUCT_URL.$g["img"]) ? PRODUCT_URL.$g["img"] :  PRODUCT_URL.'noimg.png'); ?>" alt="" class="pion2 mt-2" style="display:flex; justify-content: center;">
             </div>
             <div class="mb-2 nheading" style="display :flex; justify-content: space-between;">
               <h3><?php echo $g['tit']; ?></h3>
-              <a href="products.php" style="text-decoration:none !important;padding:15px;" class="viewBtn">View All</a>
+              <a href="products" style="text-decoration:none !important;padding-right:50px;padding-left:50px;padding-top:10px" class="viewBtn">View All</a>
             </div>
             <p><b>Model No : <?php echo $g['modno'] ?></b></p>
-            <p><?php echo nl2br($g['lngdes']); ?></p>
+            <?php echo nl2br($g['lngdes']); ?>
           </div>
           <?php } ?>
       
